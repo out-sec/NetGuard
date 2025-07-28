@@ -1,2 +1,1 @@
-# NetScanner
-Network Vulnerability Scanner
+# under development
