@@ -11,6 +11,7 @@
 3. [Project Structure](#project-structure)
 4. [Dependencies](#dependencies)
 5. [Installation](#installation)
+6. [Usage](#usage)
 6. [Contributing](#contributing)
 7. [License](#license)
 
@@ -79,6 +80,14 @@ sudo apt-get install libpcap-dev cmake g++
 mkdir build && cd build
 cmake -DCMAKE_BUILD_TYPE=Release ..
 make -j$(nproc)
+
+# Build with Boost Support
+cmake -DUSE_BOOST=ON ..
+make
+
+#Disable Tests
+cmake -DBUILD_TESTS=OFF ..
+make
 ```
 
 ## Contributing
