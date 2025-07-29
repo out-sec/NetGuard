@@ -1,7 +1,5 @@
 # Network Intrusion Detection System (NIDS) - C++ 
 
-![NIDS Logo](https://via.placeholder.com/150x50?text=NIDS) *(Optional logo)*
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://travis-ci.org/yourusername/nids.svg?branch=master)](https://travis-ci.org/yourusername/nids) *(Optional CI badge)*
 
