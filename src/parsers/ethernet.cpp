@@ -1,12 +1,13 @@
 #include "parsers/ethernet.h"
+#include "utils/bytes.h"
+#include "utils/decEthernet.h"
+
 #include <iostream>
-#include <iomanip>
-#include <cstring>
 #include <unistd.h>
 #include <arpa/inet.h>
-#include "utils/bytes.h"
-namespace parsers {
+#include <cstring>
 
+namespace parsers {
 
 std::string EthernetHeader::to_string() const {
     std::ostringstream oss;
@@ -27,12 +28,23 @@ int create_raw_socket() {
 }
 
 bool parse_ethernet_frame(const uint8_t* buffer, ssize_t length) {
-    if (length < sizeof(EthernetHeader)) return false;
+    if (!utils::is_valid_ethernet_frame(buffer, length))
+        return false;
 
     EthernetHeader eth;
-    std::memcpy(&eth.dest_mac, buffer, 6);
-    std::memcpy(&eth.src_mac, buffer + 6, 6);
-    std::memcpy(&eth.eth_type, buffer + 12, 2);
+
+    // Use utility functions to extract fields
+    auto dest_mac_str = utils::get_dest_mac(buffer, length);
+    auto src_mac_str  = utils::get_src_mac(buffer, length);
+    auto eth_type_opt = utils::get_ethertype(buffer, length);
+
+    if (!dest_mac_str || !src_mac_str || !eth_type_opt)
+        return false;
+
+    // Reconstruct the EthernetHeader
+    std::memcpy(eth.dest_mac, buffer, 6);
+    std::memcpy(eth.src_mac, buffer + 6, 6);
+    eth.eth_type = htons(*eth_type_opt); // Store in network byte order
 
     std::cout << eth.to_string() << "\n\n";
     return true;
