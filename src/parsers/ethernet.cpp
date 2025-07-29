@@ -46,11 +46,13 @@ bool parse_ethernet_frame(const uint8_t* buffer, ssize_t length) {
     std::memcpy(eth.src_mac, buffer + 6, 6);
     eth.eth_type = htons(*eth_type_opt); // Store in network byte order
 
-    std::cout << eth.to_string() << "\n";
+    eth.payload = buffer + 14;
+    eth.payload_len = length - 14;
+
+    std::cout << eth.to_string() << '\n';
+    std::cout << eth.payload_as_hex() << "\n";
 
     uint16_t eth_type = ntohs(eth.eth_type);
-    const uint8_t* payload = buffer + 14;
-    ssize_t payload_len = length - 14;
 
 
 
@@ -60,17 +62,15 @@ bool parse_ethernet_frame(const uint8_t* buffer, ssize_t length) {
             // TODO: parse_ipv4(payload, payload_len);
             break;
         case 0x0806: // ARP
-            std::cout << "  Ethernet Protocol: ARP\n\n";
+            std::cout << "  Ethernet Protocol: ARP\n";
             break;
         case 0x86DD: // IPv6
-            std::cout << "  Ethernet Protocol: IPv6\n\n";
+            std::cout << "  Ethernet Protocol: IPv6\n";
             break;
         default:
-            std::cout << "  Unknown or unsupported EtherType\n\n";
+            std::cout << "  Unknown or unsupported EtherType\n";
             break;
     }
-
-    std::cout << eth.payload_as_hex() << "\n";
 
     return true;
 }
