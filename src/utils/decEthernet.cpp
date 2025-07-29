@@ -1,17 +1,30 @@
 #include "utils/decEthernet.h"
-#include <netinet/in.h> // For ntohs
+#include "utils/bytes.h"
+#include <cstring>
+#include <netinet/in.h>
 
 namespace utils {
 
-std::optional<EthernetHeader> decode_ethernet(const uint8_t* buffer, size_t length) {
-    if (length < 14) return std::nullopt;
+bool is_valid_ethernet_frame(const uint8_t* buffer, size_t length) {
+    return buffer && length >= 14;
+}
 
-    EthernetHeader header;
-    std::memcpy(header.dest_mac, buffer, 6);
-    std::memcpy(header.src_mac, buffer + 6, 6);
-    std::memcpy(&header.eth_type, buffer + 12, 2);
+std::optional<std::string> get_dest_mac(const uint8_t* buffer, size_t length) {
+    if (!is_valid_ethernet_frame(buffer, length)) return std::nullopt;
+    return mac_to_string(buffer);
+}
 
-    return header;
+std::optional<std::string> get_src_mac(const uint8_t* buffer, size_t length) {
+    if (!is_valid_ethernet_frame(buffer, length)) return std::nullopt;
+    return mac_to_string(buffer + 6);
+}
+
+std::optional<uint16_t> get_ethertype(const uint8_t* buffer, size_t length) {
+    if (!is_valid_ethernet_frame(buffer, length)) return std::nullopt;
+
+    uint16_t eth_type;
+    std::memcpy(&eth_type, buffer + 12, 2);
+    return ntohs(eth_type);
 }
 
 } // namespace utils
