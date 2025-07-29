@@ -52,6 +52,8 @@ bool parse_ethernet_frame(const uint8_t* buffer, ssize_t length) {
     const uint8_t* payload = buffer + 14;
     ssize_t payload_len = length - 14;
 
+
+
     switch (eth_type) {
         case 0x0800: // IPv4
             std::cout << "  Ethernet Protocol: IPv4\n\n";
@@ -67,6 +69,8 @@ bool parse_ethernet_frame(const uint8_t* buffer, ssize_t length) {
             std::cout << "  Unknown or unsupported EtherType\n\n";
             break;
     }
+
+    std::cout << eth.payload_as_hex() << "\n";
 
     return true;
 }
