@@ -4,6 +4,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/nids.dir/src/main.cpp.o.d"
   "CMakeFiles/nids.dir/src/parsers/ethernet.cpp.o"
   "CMakeFiles/nids.dir/src/parsers/ethernet.cpp.o.d"
+  "CMakeFiles/nids.dir/src/utils/decEthernet.cpp.o"
+  "CMakeFiles/nids.dir/src/utils/decEthernet.cpp.o.d"
   "nids"
   "nids.pdb"
 )

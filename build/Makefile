@@ -177,6 +177,30 @@ src/parsers/ethernet.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/nids.dir/build.make CMakeFiles/nids.dir/src/parsers/ethernet.cpp.s
 .PHONY : src/parsers/ethernet.cpp.s
 
+src/utils/decEthernet.o: src/utils/decEthernet.cpp.o
+.PHONY : src/utils/decEthernet.o
+
+# target to build an object file
+src/utils/decEthernet.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nids.dir/build.make CMakeFiles/nids.dir/src/utils/decEthernet.cpp.o
+.PHONY : src/utils/decEthernet.cpp.o
+
+src/utils/decEthernet.i: src/utils/decEthernet.cpp.i
+.PHONY : src/utils/decEthernet.i
+
+# target to preprocess a source file
+src/utils/decEthernet.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nids.dir/build.make CMakeFiles/nids.dir/src/utils/decEthernet.cpp.i
+.PHONY : src/utils/decEthernet.cpp.i
+
+src/utils/decEthernet.s: src/utils/decEthernet.cpp.s
+.PHONY : src/utils/decEthernet.s
+
+# target to generate assembly for a file
+src/utils/decEthernet.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nids.dir/build.make CMakeFiles/nids.dir/src/utils/decEthernet.cpp.s
+.PHONY : src/utils/decEthernet.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -192,6 +216,9 @@ help:
 	@echo "... src/parsers/ethernet.o"
 	@echo "... src/parsers/ethernet.i"
 	@echo "... src/parsers/ethernet.s"
+	@echo "... src/utils/decEthernet.o"
+	@echo "... src/utils/decEthernet.i"
+	@echo "... src/utils/decEthernet.s"
 .PHONY : help
 
 
