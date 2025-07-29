@@ -4,23 +4,15 @@
 #include <cstring>
 #include <unistd.h>
 #include <arpa/inet.h>
-
+#include "utils/bytes.h"
 namespace parsers {
 
-std::string mac_to_string(const uint8_t* mac) {
-    std::ostringstream oss;
-    for (int i = 0; i < 6; ++i) {
-        if (i) oss << ":";
-        oss << std::hex << std::setw(2) << std::setfill('0') << static_cast<int>(mac[i]);
-    }
-    return oss.str();
-}
 
 std::string EthernetHeader::to_string() const {
     std::ostringstream oss;
     oss << "Ethernet Frame:\n"
-        << "  Destination MAC: " << mac_to_string(dest_mac) << "\n"
-        << "  Source MAC:      " << mac_to_string(src_mac) << "\n"
+        << "  Destination MAC: " << utils::mac_to_string(dest_mac) << "\n"
+        << "  Source MAC:      " << utils::mac_to_string(src_mac) << "\n"
         << "  EtherType:       0x" << std::hex << ntohs(eth_type);
     return oss.str();
 }
