@@ -46,7 +46,7 @@ bool parse_ethernet_frame(const uint8_t* buffer, ssize_t length) {
     std::memcpy(eth.src_mac, buffer + 6, 6);
     eth.eth_type = htons(*eth_type_opt); // Store in network byte order
 
-    std::cout << eth.to_string() << "\n\n";
+    std::cout << eth.to_string() << "\n";
 
     uint16_t eth_type = ntohs(eth.eth_type);
     const uint8_t* payload = buffer + 14;
