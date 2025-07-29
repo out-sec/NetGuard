@@ -58,7 +58,7 @@ bool parse_ethernet_frame(const uint8_t* buffer, ssize_t length) {
 
     switch (eth_type) {
         case 0x0800: // IPv4
-            std::cout << "  Ethernet Protocol: IPv4\n\n";
+            std::cout << "  Ethernet Protocol: IPv4\n";
             // TODO: parse_ipv4(payload, payload_len);
             break;
         case 0x0806: // ARP
