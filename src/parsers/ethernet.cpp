@@ -1,6 +1,7 @@
 #include "parsers/ethernet.h"
 #include "utils/bytes.h"
 #include "utils/decEthernet.h"
+#include "config/interface.h"
 
 #include <iostream>
 #include <unistd.h>
@@ -24,8 +25,21 @@ int create_raw_socket() {
         perror("Socket creation failed");
         return -1;
     }
+
+    // Load interface from config
+    config::Interface iface;
+    std::string iface_name = iface.get_interface();
+
+    if (setsockopt(sock, SOL_SOCKET, SO_BINDTODEVICE, iface_name.c_str(), iface_name.length()) < 0) {
+        perror(("Binding to interface failed: " + iface_name).c_str());
+        close(sock);
+        return -1;
+    }
+
+    std::cout << "[+] Bound to interface: " << iface_name << "\n";
     return sock;
 }
+
 
 bool parse_ethernet_frame(const uint8_t* buffer, ssize_t length) {
     if (!utils::is_valid_ethernet_frame(buffer, length))
