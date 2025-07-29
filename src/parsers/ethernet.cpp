@@ -77,6 +77,8 @@ bool parse_ethernet_frame(const uint8_t* buffer, ssize_t length) {
     else
         std::cout << "Empty Payload\n";
 
+    // Return true to indicate successful parsing
+    std::cout << "\n";
     return true;
 }
 
