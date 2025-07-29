@@ -3,25 +3,22 @@
 
 #include <cstdint>
 #include <cstddef>
-#include <cstring>
+#include <string>
 #include <optional>
-#include <netinet/in.h>
 
 namespace utils {
 
-struct EthernetHeader {
-    uint8_t dest_mac[6];
-    uint8_t src_mac[6];
-    uint16_t eth_type; // In network byte order (big endian)
+// Validates minimum Ethernet header length
+bool is_valid_ethernet_frame(const uint8_t* buffer, size_t length);
 
-    // Accessor functions (optional convenience)
-    uint16_t get_ethertype() const {
-        return ntohs(eth_type);
-    }
-};
+// Extract destination MAC address
+std::optional<std::string> get_dest_mac(const uint8_t* buffer, size_t length);
 
-// Parses raw Ethernet frame buffer into EthernetHeader
-std::optional<EthernetHeader> decode_ethernet(const uint8_t* buffer, size_t length);
+// Extract source MAC address
+std::optional<std::string> get_src_mac(const uint8_t* buffer, size_t length);
+
+// Extract EtherType (returns in host byte order)
+std::optional<uint16_t> get_ethertype(const uint8_t* buffer, size_t length);
 
 } // namespace utils
 
