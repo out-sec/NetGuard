@@ -50,7 +50,7 @@ bool parse_ethernet_frame(const uint8_t* buffer, ssize_t length) {
     eth.payload_len = length - 14;
 
     std::cout << eth.to_string() << '\n';
-    std::cout << eth.payload_as_hex() << "\n";
+    // std::cout << eth.payload_as_hex() << "\n";
 
     uint16_t eth_type = ntohs(eth.eth_type);
 
@@ -71,6 +71,11 @@ bool parse_ethernet_frame(const uint8_t* buffer, ssize_t length) {
             std::cout << "  Unknown or unsupported EtherType\n";
             break;
     }
+
+    if (eth.payload_len > 0)
+        std::cout << eth.payload_as_hex() << "\n";
+    else
+        std::cout << "Empty Payload\n";
 
     return true;
 }
