@@ -23,7 +23,7 @@ jobs:
 
       - name: Clean build directory (remove stale cache)
         run: rm -rf build
-        
+
       - name: Configure with CMake
         run: |
           mkdir -p build
@@ -71,6 +71,9 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+
+      - name: Clean build directory (before packaging)
+        run: rm -rf build
 
       - name: Configure and Build
         run: |
