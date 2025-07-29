@@ -77,13 +77,12 @@ bool parse_ethernet_frame(const uint8_t* buffer, ssize_t length) {
 
 std::string EthernetHeader::payload_as_hex() const {
     std::ostringstream oss;
-    oss << "  Payload (first 64 bytes):\n    ";
+    oss << "  Payload (" << payload_len << " bytes):\n    ";
 
-    int bytes_to_print = std::min<ssize_t>(payload_len, 64); // limit output
-    for (int i = 0; i < bytes_to_print; ++i) {
+    for (int i = 0; i < payload_len; ++i) {
         oss << std::hex << std::setw(2) << std::setfill('0')
             << static_cast<int>(payload[i]) << " ";
-        if ((i + 1) % 16 == 0) oss << "\n    "; // newline every 16 bytes
+        if ((i + 1) % 16 == 0) oss << "\n    ";
     }
 
     return oss.str();
