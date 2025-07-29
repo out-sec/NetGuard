@@ -13,8 +13,11 @@ struct EthernetHeader {
     uint8_t dest_mac[6];
     uint8_t src_mac[6];
     uint16_t eth_type;
+    const uint8_t* payload = nullptr;
+    ssize_t payload_len = 0;
 
     std::string to_string() const;
+    std::string payload_as_hex() const; // Add this
 };
 
 // Initializes and returns a raw socket for capturing Ethernet frames
