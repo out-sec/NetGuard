@@ -54,14 +54,14 @@ bool parse_ethernet_frame(const uint8_t* buffer, ssize_t length) {
 
     switch (eth_type) {
         case 0x0800: // IPv4
-            std::cout << "  -> IPv4 payload detected (not yet parsed)\n\n";
+            std::cout << "Ethernet Protocol: IPv4\n\n";
             // TODO: parse_ipv4(payload, payload_len);
             break;
         case 0x0806: // ARP
-            std::cout << "  -> ARP payload detected (not yet parsed)\n\n";
+            std::cout << "Ethernet Protocol: ARP\n\n";
             break;
         case 0x86DD: // IPv6
-            std::cout << "  -> IPv6 payload detected (not yet parsed)\n\n";
+            std::cout << "Ethernet Protocol: IPv6\n\n";
             break;
         default:
             std::cout << "  -> Unknown or unsupported EtherType\n\n";
