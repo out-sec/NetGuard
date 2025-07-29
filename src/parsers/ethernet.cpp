@@ -47,6 +47,27 @@ bool parse_ethernet_frame(const uint8_t* buffer, ssize_t length) {
     eth.eth_type = htons(*eth_type_opt); // Store in network byte order
 
     std::cout << eth.to_string() << "\n\n";
+
+    uint16_t eth_type = ntohs(eth.eth_type);
+    const uint8_t* payload = buffer + 14;
+    ssize_t payload_len = length - 14;
+
+    switch (eth_type) {
+        case 0x0800: // IPv4
+            std::cout << "  -> IPv4 payload detected (not yet parsed)\n\n";
+            // TODO: parse_ipv4(payload, payload_len);
+            break;
+        case 0x0806: // ARP
+            std::cout << "  -> ARP payload detected (not yet parsed)\n\n";
+            break;
+        case 0x86DD: // IPv6
+            std::cout << "  -> IPv6 payload detected (not yet parsed)\n\n";
+            break;
+        default:
+            std::cout << "  -> Unknown or unsupported EtherType\n\n";
+            break;
+    }
+
     return true;
 }
 
