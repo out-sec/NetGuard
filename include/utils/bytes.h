@@ -27,6 +27,12 @@ inline std::string mac_to_string(const uint8_t* mac) {
     return oss.str();
 }
 
+inline std::string to_hex(uint32_t value, int width = 4) {
+    std::ostringstream oss;
+    oss << std::hex << std::setw(width) << std::setfill('0') << std::uppercase << value;
+    return oss.str();
+}
+
 } // namespace utils
 
 #endif
