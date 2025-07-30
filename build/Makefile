@@ -153,6 +153,30 @@ src/config/interface.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/nids.dir/build.make CMakeFiles/nids.dir/src/config/interface.cpp.s
 .PHONY : src/config/interface.cpp.s
 
+src/entry.o: src/entry.cpp.o
+.PHONY : src/entry.o
+
+# target to build an object file
+src/entry.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nids.dir/build.make CMakeFiles/nids.dir/src/entry.cpp.o
+.PHONY : src/entry.cpp.o
+
+src/entry.i: src/entry.cpp.i
+.PHONY : src/entry.i
+
+# target to preprocess a source file
+src/entry.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nids.dir/build.make CMakeFiles/nids.dir/src/entry.cpp.i
+.PHONY : src/entry.cpp.i
+
+src/entry.s: src/entry.cpp.s
+.PHONY : src/entry.s
+
+# target to generate assembly for a file
+src/entry.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nids.dir/build.make CMakeFiles/nids.dir/src/entry.cpp.s
+.PHONY : src/entry.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -261,6 +285,9 @@ help:
 	@echo "... src/config/interface.o"
 	@echo "... src/config/interface.i"
 	@echo "... src/config/interface.s"
+	@echo "... src/entry.o"
+	@echo "... src/entry.i"
+	@echo "... src/entry.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

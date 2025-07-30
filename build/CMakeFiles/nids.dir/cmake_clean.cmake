@@ -2,6 +2,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/nids.dir/link.d"
   "CMakeFiles/nids.dir/src/config/interface.cpp.o"
   "CMakeFiles/nids.dir/src/config/interface.cpp.o.d"
+  "CMakeFiles/nids.dir/src/entry.cpp.o"
+  "CMakeFiles/nids.dir/src/entry.cpp.o.d"
   "CMakeFiles/nids.dir/src/main.cpp.o"
   "CMakeFiles/nids.dir/src/main.cpp.o.d"
   "CMakeFiles/nids.dir/src/parsers/ethernet.cpp.o"

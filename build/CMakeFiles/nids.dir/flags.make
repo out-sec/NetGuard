@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/home/kali/NetGuard/include
 
-CXX_FLAGS = -std=gnu++17
+CXX_FLAGS = -std=gnu++17 -flto=auto -fno-fat-lto-objects -Wall -Wextra -Wunused -Wunused-function -Wunused-variable -ffunction-sections -fdata-sections
 
