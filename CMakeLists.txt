@@ -4,17 +4,27 @@ project(nids)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Include directories
+# Header location
 include_directories(include)
 
 # Source files
 set(SOURCES
     src/main.cpp
+    src/entry.cpp
     src/parsers/ethernet.cpp
-    src/utils/decEthernet.cpp
-    src/config/interface.cpp
     src/parsers/ipv4.cpp
+    src/utils/decEthernet.cpp
+    # src/utils/hex.cpp
+    src/config/interface.cpp
 )
 
-# Add executable
+# Compiler warnings
+add_compile_options(-Wall -Wextra -Wunused -Wunused-function -Wunused-variable)
+
+# Optional: Dead code elimination
+set(CMAKE_INTERPROCEDURAL_OPTIMIZATION TRUE)
+add_compile_options(-ffunction-sections -fdata-sections)
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,--gc-sections")
+
+# Output
 add_executable(nids ${SOURCES})
