@@ -2,6 +2,7 @@
 #include "utils/bytes.h"
 #include "utils/decEthernet.h"
 #include "config/interface.h"
+#include "parsers/ipv4.h"
 
 #include <iostream>
 #include <unistd.h>
@@ -74,6 +75,7 @@ bool parse_ethernet_frame(const uint8_t* buffer, ssize_t length) {
         case 0x0800: // IPv4
             std::cout << "  Ethernet Protocol: IPv4\n";
             // TODO: parse_ipv4(payload, payload_len);
+            parsers::parse_ipv4_packet(eth.payload, eth.payload_len);
             break;
         case 0x0806: // ARP
             std::cout << "  Ethernet Protocol: ARP\n";
@@ -86,10 +88,10 @@ bool parse_ethernet_frame(const uint8_t* buffer, ssize_t length) {
             break;
     }
 
-    if (eth.payload_len > 0)
-        std::cout << eth.payload_as_hex() << "\n";
-    else
-        std::cout << "Empty Payload\n";
+    // if (eth.payload_len > 0)
+    //     std::cout << eth.payload_as_hex() << "\n";
+    // else
+    //     std::cout << "Empty Payload\n";
 
     // Return true to indicate successful parsing
     std::cout << "\n";
