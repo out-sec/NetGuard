@@ -12,7 +12,7 @@ set(SOURCES
     src/main.cpp
     src/parsers/ethernet.cpp
     src/utils/decEthernet.cpp
-    src/config/Interface.cpp
+    src/config/interface.cpp
 )
 
 # Add executable
