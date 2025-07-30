@@ -1,3 +1,18 @@
-# Markdown
+# Markdown files
+# Set the language for Markdown files to be detected by linguist
+*.md linguist-language=Markdown
+# Ensure Markdown files are detectable and not treated as documentation
+# This prevents them from being excluded from language statistics
+# and ensures they are counted in the language breakdown
+# This is useful for projects where Markdown files are significant
+# but not necessarily documentation (e.g., README files, notes)
+# This setting can help in accurately reflecting the project's language usage
+# in the GitHub language statistics.
+# It is particularly useful for projects that have a lot of Markdown files
+# that are not purely documentation, such as technical notes or project logs.
+# The `linguist-detectable` setting ensures that these files are included
+# in the language statistics, while `linguist-documentation` set to false
+# ensures they are not treated as documentation files.
+# This is useful for projects where Markdown files are significant  
 *.md linguist-detectable=true
 *.md linguist-documentation=false
