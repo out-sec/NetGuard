@@ -1,6 +1,7 @@
 # NetGuard
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![C++](https://img.shields.io/badge/C%2B%2B-%2300599C?style=for-the-badge&logo=cplusplus&logoColor=white)](https://isocpp.org/)
 
 NetGuard is a high-performance Network Intrusion Detection System (NIDS) implemented in modern C++ with CMake. It provides real-time network traffic analysis, multi-layer protocol parsing, custom rule-based detection, and a threat alerting system. Designed for extensibility, NetGuard aims to evolve into a Network Intrusion Prevention System (NIPS) with active mitigation capabilities.
 
