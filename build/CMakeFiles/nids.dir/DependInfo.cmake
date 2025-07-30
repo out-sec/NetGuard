@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/kali/Network-Intrusion-Detection-System/src/config/interface.cpp" "CMakeFiles/nids.dir/src/config/interface.cpp.o" "gcc" "CMakeFiles/nids.dir/src/config/interface.cpp.o.d"
   "/home/kali/Network-Intrusion-Detection-System/src/main.cpp" "CMakeFiles/nids.dir/src/main.cpp.o" "gcc" "CMakeFiles/nids.dir/src/main.cpp.o.d"
   "/home/kali/Network-Intrusion-Detection-System/src/parsers/ethernet.cpp" "CMakeFiles/nids.dir/src/parsers/ethernet.cpp.o" "gcc" "CMakeFiles/nids.dir/src/parsers/ethernet.cpp.o.d"
   "/home/kali/Network-Intrusion-Detection-System/src/utils/decEthernet.cpp" "CMakeFiles/nids.dir/src/utils/decEthernet.cpp.o" "gcc" "CMakeFiles/nids.dir/src/utils/decEthernet.cpp.o.d"

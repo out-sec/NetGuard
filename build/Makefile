@@ -129,6 +129,30 @@ nids/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/nids.dir/build.make CMakeFiles/nids.dir/build
 .PHONY : nids/fast
 
+src/config/interface.o: src/config/interface.cpp.o
+.PHONY : src/config/interface.o
+
+# target to build an object file
+src/config/interface.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nids.dir/build.make CMakeFiles/nids.dir/src/config/interface.cpp.o
+.PHONY : src/config/interface.cpp.o
+
+src/config/interface.i: src/config/interface.cpp.i
+.PHONY : src/config/interface.i
+
+# target to preprocess a source file
+src/config/interface.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nids.dir/build.make CMakeFiles/nids.dir/src/config/interface.cpp.i
+.PHONY : src/config/interface.cpp.i
+
+src/config/interface.s: src/config/interface.cpp.s
+.PHONY : src/config/interface.s
+
+# target to generate assembly for a file
+src/config/interface.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nids.dir/build.make CMakeFiles/nids.dir/src/config/interface.cpp.s
+.PHONY : src/config/interface.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -210,6 +234,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... nids"
+	@echo "... src/config/interface.o"
+	@echo "... src/config/interface.i"
+	@echo "... src/config/interface.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
