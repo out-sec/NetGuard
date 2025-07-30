@@ -13,6 +13,7 @@ set(SOURCES
     src/parsers/ethernet.cpp
     src/utils/decEthernet.cpp
     src/config/interface.cpp
+    src/parsers/ipv4.cpp
 )
 
 # Add executable
