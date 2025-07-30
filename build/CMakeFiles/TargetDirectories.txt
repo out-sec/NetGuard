@@ -1,0 +1,3 @@
+/home/kali/NetGuard/build/CMakeFiles/nids.dir
+/home/kali/NetGuard/build/CMakeFiles/edit_cache.dir
+/home/kali/NetGuard/build/CMakeFiles/rebuild_cache.dir
