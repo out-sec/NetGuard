@@ -73,7 +73,7 @@ Project maintainers have the right and responsibility to remove, edit, or reject
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the community leaders responsible for enforcement through the following channels:
 
-- **Primary Contact**: Send an email to conduct@project-email.com
+- **Primary Contact**: Send an email to contact@out-sec.org
 - **GitHub Issues**: Create a private security advisory for serious violations
 - **Alternative Contact**: Contact project maintainers directly through provided channels
 
