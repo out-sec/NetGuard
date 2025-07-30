@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/kali/Network-Intrusion-Detection-System/include
+CXX_INCLUDES = -I/home/kali/NetGuard/include
 
 CXX_FLAGS = -std=gnu++17
 

@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kali/Network-Intrusion-Detection-System
+CMAKE_SOURCE_DIR = /home/kali/NetGuard
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kali/Network-Intrusion-Detection-System/build
+CMAKE_BINARY_DIR = /home/kali/NetGuard/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kali/Network-Intrusion-Detection-System/build/CMakeFiles /home/kali/Network-Intrusion-Detection-System/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kali/NetGuard/build/CMakeFiles /home/kali/NetGuard/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kali/Network-Intrusion-Detection-System/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kali/NetGuard/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -201,6 +201,30 @@ src/parsers/ethernet.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/nids.dir/build.make CMakeFiles/nids.dir/src/parsers/ethernet.cpp.s
 .PHONY : src/parsers/ethernet.cpp.s
 
+src/parsers/ipv4.o: src/parsers/ipv4.cpp.o
+.PHONY : src/parsers/ipv4.o
+
+# target to build an object file
+src/parsers/ipv4.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nids.dir/build.make CMakeFiles/nids.dir/src/parsers/ipv4.cpp.o
+.PHONY : src/parsers/ipv4.cpp.o
+
+src/parsers/ipv4.i: src/parsers/ipv4.cpp.i
+.PHONY : src/parsers/ipv4.i
+
+# target to preprocess a source file
+src/parsers/ipv4.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nids.dir/build.make CMakeFiles/nids.dir/src/parsers/ipv4.cpp.i
+.PHONY : src/parsers/ipv4.cpp.i
+
+src/parsers/ipv4.s: src/parsers/ipv4.cpp.s
+.PHONY : src/parsers/ipv4.s
+
+# target to generate assembly for a file
+src/parsers/ipv4.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nids.dir/build.make CMakeFiles/nids.dir/src/parsers/ipv4.cpp.s
+.PHONY : src/parsers/ipv4.cpp.s
+
 src/utils/decEthernet.o: src/utils/decEthernet.cpp.o
 .PHONY : src/utils/decEthernet.o
 
@@ -243,6 +267,9 @@ help:
 	@echo "... src/parsers/ethernet.o"
 	@echo "... src/parsers/ethernet.i"
 	@echo "... src/parsers/ethernet.s"
+	@echo "... src/parsers/ipv4.o"
+	@echo "... src/parsers/ipv4.i"
+	@echo "... src/parsers/ipv4.s"
 	@echo "... src/utils/decEthernet.o"
 	@echo "... src/utils/decEthernet.i"
 	@echo "... src/utils/decEthernet.s"
