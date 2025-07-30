@@ -2,7 +2,7 @@
 
 ## Our Commitment
 
-We are committed to fostering an open, welcoming, diverse, inclusive, and healthy community. As contributors and maintainers of the Network Intrusion Detection System project, we pledge to make participation in our community a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.
+We are committed to fostering an open, welcoming, diverse, inclusive, and healthy community. As contributors and maintainers of the NetGuard project, we pledge to make participation in our community a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.
 
 ## Our Standards
 
