@@ -150,9 +150,3 @@ The current version of this Code of Conduct is maintained in the project reposit
 For questions about this Code of Conduct or its enforcement, please contact:
 
 - Project Maintainers: [contact@out-sec.org](mailto:contact@out-sec.org)
-
----
-
-**Version**: 1.0  
-**Effective Date**: July 2025  
-**Last Updated**: July 2025
