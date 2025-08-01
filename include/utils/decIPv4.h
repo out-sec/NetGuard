@@ -1,5 +1,5 @@
-#ifndef DEC_IPV4_H
-#define DEC_IPV4_H
+#ifndef UTILS_DEC_IPV4_H
+#define UTILS_DEC_IPV4_H
 
 #include <string>
 #include "parsers/ipv4.h"
