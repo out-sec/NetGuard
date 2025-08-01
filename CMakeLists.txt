@@ -16,6 +16,7 @@ set(SOURCES
     src/utils/decEthernet.cpp
     # src/utils/hex.cpp
     src/config/interface.cpp
+    src/utils/decIPv4.cpp
 )
 
 # Compiler warnings
