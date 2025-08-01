@@ -1,6 +1,7 @@
 #include "config/interface.h"
 #include "parsers/ethernet.h"
 #include "parsers/ipv4.h"
+#include "utils/decIPv4.h"
 
 #include <iostream>
 #include <unistd.h>
@@ -56,16 +57,16 @@ int run_entry() {
             std::cout << "      Source MAC:      " << eth.src_mac_str << "\n";
             std::cout << "      EtherType:       " << eth.eth_type_str << " (" << eth.eth_proto << ")\n";
             std::cout << "  IPv4 Packet:\n";
-            std::cout << "      Version:         " << static_cast<int>(ipv4.version) << "\n";
-            std::cout << "      Internet Header Length:             " << static_cast<int>(ipv4.ihl) << "\n";
-            std::cout << "      Type Of Service:            " << static_cast<int>(ipv4.tos) << "\n";
-            std::cout << "      Total Length:    " << ipv4.total_length << "\n";
-            std::cout << "      Identification:  " << std::hex << ipv4.identification << std::dec << "\n";
-            std::cout << "      Flags:           " << ((ipv4.flags_fragment_offset & 0xE000) >> 13) << "\n";
-            std::cout << "      Fragment Offset: " << (ipv4.flags_fragment_offset & 0x1FFF) << "\n";
-            std::cout << "      Time To Live:             " << static_cast<int>(ipv4.ttl) << "\n";
-            std::cout << "      Protocol:        " << static_cast<int>(ipv4.protocol) << " (" << parsers::protocol_to_string(ipv4.protocol) << ")\n";
-            std::cout << "      Header Checksum: " << std::hex << ipv4.header_checksum << std::dec << "\n";
+            std::cout << "      Version:         " << decoders::version_to_string(static_cast<int>(ipv4.version)) << "\n";
+            std::cout << "      Internet Header Length: " << decoders::ihl_to_string(static_cast<int>(ipv4.ihl)) << "\n";
+            std::cout << "      Type Of Service: " << (static_cast<int>(ipv4.tos)) << "\n";
+            std::cout << "      Total Length:    " << decoders::total_length_to_string(ipv4.total_length) << "\n";
+            std::cout << "      Identification:  " << decoders::identification_to_string(ipv4.identification) << "\n";
+            std::cout << "      Flags:           " << decoders::flags_to_string((ipv4.flags_fragment_offset)) << "\n";
+            std::cout << "      Fragment Offset: " << decoders::fragment_offset_to_string((ipv4.flags_fragment_offset)) << "\n";
+            std::cout << "      Time To Live:    " << decoders::ttl_to_string(static_cast<int>(ipv4.ttl)) << "\n";
+            std::cout << "      Protocol:        " << decoders::protocol_to_string(static_cast<int>(ipv4.protocol)) << "\n";
+            std::cout << "      Header Checksum: " << decoders::checksum_to_string(ipv4.header_checksum)<< "\n";
             std::cout << "      Source IP:       " << parsers::ipv4_to_string(ipv4.src_ip) << "\n";
             std::cout << "      Destination IP:  " << parsers::ipv4_to_string(ipv4.dest_ip) << "\n";
             std::cout << "      Payload Length:  " << ipv4.payload_length << " bytes\n";
