@@ -17,6 +17,7 @@ set(SOURCES
     # src/utils/hex.cpp
     src/config/interface.cpp
     src/utils/decIPv4.cpp
+    src/parsers/arp.cpp
 )
 
 # Compiler warnings
