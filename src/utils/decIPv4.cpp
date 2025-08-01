@@ -41,7 +41,8 @@ std::string flags_to_string(uint16_t flags_fragment_offset) {
     if (flags & 0b010) result += "Don't Fragment | ";
     if (flags & 0b001) result += "More Fragments";
     if (result.empty()) result = "No flags set";
-    else if (result.ends_with(" | ")) result.erase(result.size() - 3);  // Remove trailing separator
+    else if (result.size() >= 3 && result.compare(result.size() - 3, 3, " | ") == 0)
+    result.erase(result.size() - 3);
 
     return result;
 }
