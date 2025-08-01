@@ -273,6 +273,30 @@ src/utils/decEthernet.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/nids.dir/build.make CMakeFiles/nids.dir/src/utils/decEthernet.cpp.s
 .PHONY : src/utils/decEthernet.cpp.s
 
+src/utils/decIPv4.o: src/utils/decIPv4.cpp.o
+.PHONY : src/utils/decIPv4.o
+
+# target to build an object file
+src/utils/decIPv4.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nids.dir/build.make CMakeFiles/nids.dir/src/utils/decIPv4.cpp.o
+.PHONY : src/utils/decIPv4.cpp.o
+
+src/utils/decIPv4.i: src/utils/decIPv4.cpp.i
+.PHONY : src/utils/decIPv4.i
+
+# target to preprocess a source file
+src/utils/decIPv4.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nids.dir/build.make CMakeFiles/nids.dir/src/utils/decIPv4.cpp.i
+.PHONY : src/utils/decIPv4.cpp.i
+
+src/utils/decIPv4.s: src/utils/decIPv4.cpp.s
+.PHONY : src/utils/decIPv4.s
+
+# target to generate assembly for a file
+src/utils/decIPv4.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nids.dir/build.make CMakeFiles/nids.dir/src/utils/decIPv4.cpp.s
+.PHONY : src/utils/decIPv4.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -300,6 +324,9 @@ help:
 	@echo "... src/utils/decEthernet.o"
 	@echo "... src/utils/decEthernet.i"
 	@echo "... src/utils/decEthernet.s"
+	@echo "... src/utils/decIPv4.o"
+	@echo "... src/utils/decIPv4.i"
+	@echo "... src/utils/decIPv4.s"
 .PHONY : help
 
 
