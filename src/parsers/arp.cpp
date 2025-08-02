@@ -1,6 +1,8 @@
 #include "parsers/arp.h"
+
 #include <arpa/inet.h>
 #include <cstring>
+#include <iomanip>
 
 namespace parsers {
 
@@ -17,6 +19,10 @@ namespace parsers {
         header.hardware_size = *(buffer + 4);
         header.protocol_size = *(buffer + 5);
         header.operation     = ntohs(*reinterpret_cast<const uint16_t*>(buffer + 6));
+
+        // Set string versions
+        header.hardware_type_str = hardware_type_to_string(header.hardware_type);
+        header.protocol_type_str = protocol_type_to_string(header.protocol_type);
 
         // Extract addresses
         const uint8_t* ptr = buffer + 8;
@@ -35,6 +41,26 @@ namespace parsers {
         header.target_ip = std::string(ip_buf);
 
         return header;
+    }
+
+    std::string hardware_type_to_string(uint16_t type) {
+        switch (type) {
+            case 1: return "Ethernet (1)";
+            default: return "Unknown (" + std::to_string(type) + ")";
+        }
+    }
+
+    std::string protocol_type_to_string(uint16_t proto) {
+        std::ostringstream oss;
+        oss << "0x" << std::hex << std::setw(4) << std::setfill('0') << proto;
+        if (proto == 0x0800) {
+            oss << " (IPv4)";
+        } else if (proto == 0x86DD) {
+            oss << " (IPv6)";
+        } else if (proto == 0x0806) {
+            oss << " (ARP)";
+        }
+        return oss.str();
     }
 
 } // namespace parsers
