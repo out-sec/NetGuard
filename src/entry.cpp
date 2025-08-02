@@ -2,6 +2,8 @@
 #include "parsers/ethernet.h"
 #include "parsers/ipv4.h"
 #include "utils/decIPv4.h"
+#include "parsers/arp.h"
+#include "utils/decEthernet.h"
 
 #include <iostream>
 #include <unistd.h>
@@ -83,7 +85,36 @@ int run_entry() {
                 std::cout << "      No Payload\n";
             }
         }
+        // ARP Protocol Implementation
+        else if (eth.eth_proto == "ARP") {
+            parsers::ARPHeader arp = parsers::parse_arp_header(eth.payload, eth.payload_len);
 
+            std::cout << "[+] Packet #" << packet_number << " - ARP Packet\n";
+            std::cout << "  Ethernet Frame:\n";
+            std::cout << "      Destination MAC: " << eth.dest_mac_str << "\n";
+            std::cout << "      Source MAC:      " << eth.src_mac_str << "\n";
+            std::cout << "      EtherType:       " << eth.eth_type_str << " (" << eth.eth_proto << ")\n";
+
+            std::cout << "  ARP Packet:\n";
+            std::cout << "      Hardware Type:   " << arp.hardware_type << "\n";
+            std::cout << "      Protocol Type:   " << arp.protocol_type << "\n";
+            std::cout << "      Hardware Size:   " << static_cast<int>(arp.hardware_size) << "\n";
+            std::cout << "      Protocol Size:   " << static_cast<int>(arp.protocol_size) << "\n";
+            std::cout << "      Operation:       " << ((arp.operation == 1) ? "Request (1)" : "Reply (2)") << "\n";
+            std::cout << "      Sender MAC:      ";
+            for (const auto& byte : arp.sender_mac)
+                std::cout << std::hex << std::setw(2) << std::setfill('0') << static_cast<int>(byte) << ":";
+            std::cout << "\b \n"; // Remove last colon
+
+            std::cout << "      Sender IP:       " << arp.sender_ip << "\n";
+
+            std::cout << "      Target MAC:      ";
+            for (const auto& byte : arp.target_mac)
+                std::cout << std::hex << std::setw(2) << std::setfill('0') << static_cast<int>(byte) << ":";
+            std::cout << "\b \n";
+
+            std::cout << "      Target IP:       " << arp.target_ip << "\n";
+        }
         
 
     }
