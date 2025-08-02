@@ -49,7 +49,7 @@ int run_entry() {
         // Step 3: Parse Ethernet frame (which dispatches to IPv4, etc.)
         parsers::EthernetHeader eth = parsers::parse_ethernet_header(buffer, len);
 
-        /*if (eth.eth_proto == "IPv4") {
+        if (eth.eth_proto == "IPv4") {
             parsers::IPv4Header ipv4 = parsers::parse_ipv4_header(eth.payload, eth.payload_len);
 
 
@@ -86,7 +86,7 @@ int run_entry() {
             }
         }
         // ARP Protocol Implementation
-        else */if (eth.eth_proto == "ARP") {
+        else if (eth.eth_proto == "ARP") {
             parsers::ARPHeader arp = parsers::parse_arp_header(eth.payload, eth.payload_len);
 
             std::cout << "[+] Packet #" << packet_number << " - ARP Packet\n";
