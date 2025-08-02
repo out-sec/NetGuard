@@ -201,6 +201,30 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/nids.dir/build.make CMakeFiles/nids.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/parsers/arp.o: src/parsers/arp.cpp.o
+.PHONY : src/parsers/arp.o
+
+# target to build an object file
+src/parsers/arp.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nids.dir/build.make CMakeFiles/nids.dir/src/parsers/arp.cpp.o
+.PHONY : src/parsers/arp.cpp.o
+
+src/parsers/arp.i: src/parsers/arp.cpp.i
+.PHONY : src/parsers/arp.i
+
+# target to preprocess a source file
+src/parsers/arp.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nids.dir/build.make CMakeFiles/nids.dir/src/parsers/arp.cpp.i
+.PHONY : src/parsers/arp.cpp.i
+
+src/parsers/arp.s: src/parsers/arp.cpp.s
+.PHONY : src/parsers/arp.s
+
+# target to generate assembly for a file
+src/parsers/arp.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nids.dir/build.make CMakeFiles/nids.dir/src/parsers/arp.cpp.s
+.PHONY : src/parsers/arp.cpp.s
+
 src/parsers/ethernet.o: src/parsers/ethernet.cpp.o
 .PHONY : src/parsers/ethernet.o
 
@@ -315,6 +339,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/parsers/arp.o"
+	@echo "... src/parsers/arp.i"
+	@echo "... src/parsers/arp.s"
 	@echo "... src/parsers/ethernet.o"
 	@echo "... src/parsers/ethernet.i"
 	@echo "... src/parsers/ethernet.s"
