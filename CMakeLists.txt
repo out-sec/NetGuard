@@ -7,6 +7,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Header location
 include_directories(include)
 
+configure_file("${CMAKE_SOURCE_DIR}/config/interface.cfg" 
+               "${CMAKE_BINARY_DIR}/config/interface.cfg" COPYONLY)
+
 # Source files
 set(SOURCES
     src/main.cpp
