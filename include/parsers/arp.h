@@ -22,9 +22,9 @@ namespace parsers {
     };
 
     // Parser Function to extract ARP Header from a buffer
-    ARPHeader parse_arp_header(const uint8_t* buffer, ssize_t length) {}
+    ARPHeader parse_arp_header(const uint8_t* buffer, ssize_t length);
 
-} // ARP Header structure
+} // namespace parsers
 
 
 #endif // PARSERS_ARP_H
