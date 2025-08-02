@@ -25,7 +25,8 @@ NetGuard is a high-performance Network Intrusion Detection System (NIDS) impleme
 
 ### Supported Protocols
 - Ethernet
-- IP (v4 and v6)
+- IP (v4)
+- ARP 
 - TCP
 - UDP
 - ICMP
