@@ -24,15 +24,15 @@ namespace parsers {
         ptr += 6;
 
         char ip_buf[INET_ADDRSTRLEN];
-        std::memcpy(ip_buf, ptr, 4);
-        header.sender_ip = inet_ntoa(*reinterpret_cast<const in_addr*>(ptr));
+        inet_ntop(AF_INET, ptr, ip_buf, INET_ADDRSTRLEN);
+        header.sender_ip = std::string(ip_buf);
         ptr += 4;
 
         header.target_mac.assign(ptr, ptr + 6);
         ptr += 6;
 
-        std::memcpy(ip_buf, ptr, 4);
-        header.target_ip = inet_ntoa(*reinterpret_cast<const in_addr*>(ptr));
+        inet_ntop(AF_INET, ptr, ip_buf, INET_ADDRSTRLEN);
+        header.target_ip = std::string(ip_buf);
 
         return header;
     }
