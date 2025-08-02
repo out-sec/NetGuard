@@ -49,7 +49,7 @@ int run_entry() {
         // Step 3: Parse Ethernet frame (which dispatches to IPv4, etc.)
         parsers::EthernetHeader eth = parsers::parse_ethernet_header(buffer, len);
 
-        if (eth.eth_proto == "IPv4") {
+        /*if (eth.eth_proto == "IPv4") {
             parsers::IPv4Header ipv4 = parsers::parse_ipv4_header(eth.payload, eth.payload_len);
 
 
@@ -86,7 +86,7 @@ int run_entry() {
             }
         }
         // ARP Protocol Implementation
-        else if (eth.eth_proto == "ARP") {
+        else */if (eth.eth_proto == "ARP") {
             parsers::ARPHeader arp = parsers::parse_arp_header(eth.payload, eth.payload_len);
 
             std::cout << "[+] Packet #" << packet_number << " - ARP Packet\n";
@@ -96,8 +96,8 @@ int run_entry() {
             std::cout << "      EtherType:       " << eth.eth_type_str << " (" << eth.eth_proto << ")\n";
 
             std::cout << "  ARP Packet:\n";
-            std::cout << "      Hardware Type:   " << arp.hardware_type << "\n";
-            std::cout << "      Protocol Type:   " << arp.protocol_type << "\n";
+            std::cout << "      Hardware Type:   " << arp.hardware_type_str << "\n";
+            std::cout << "      Protocol Type:   " << arp.protocol_type_str << "\n";
             std::cout << "      Hardware Size:   " << static_cast<int>(arp.hardware_size) << "\n";
             std::cout << "      Protocol Size:   " << static_cast<int>(arp.protocol_size) << "\n";
             std::cout << "      Operation:       " << ((arp.operation == 1) ? "Request (1)" : "Reply (2)") << "\n";
