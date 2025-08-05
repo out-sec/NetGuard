@@ -53,7 +53,7 @@ int run_entry() {
             parsers::IPv4Header ipv4 = parsers::parse_ipv4_header(eth.payload, eth.payload_len);
 
 
-            std::cout << "[+] Packet #" << packet_number << parsers::ipv4_to_string(ipv4.src_ip) << " ==> " << parsers::ipv4_to_string(ipv4.dest_ip) << "\n";
+            std::cout << "[+] Packet # " << packet_number << " " << parsers::ipv4_to_string(ipv4.src_ip) << " ==> " << parsers::ipv4_to_string(ipv4.dest_ip) << "\n";
             std::cout << "  Ethernet Frame:\n";
             std::cout << "      Destination MAC: " << eth.dest_mac_str << "\n";
             std::cout << "      Source MAC:      " << eth.src_mac_str << "\n";
@@ -89,7 +89,7 @@ int run_entry() {
         else if (eth.eth_proto == "ARP") {
             parsers::ARPHeader arp = parsers::parse_arp_header(eth.payload, eth.payload_len);
 
-            std::cout << "[+] Packet #" << packet_number << " - ARP Packet\n";
+            std::cout << "[+] Packet #" << packet_number << " ARP " << arp.sender_ip << " ==> " << arp.target_ip << "\n";
             std::cout << "  Ethernet Frame:\n";
             std::cout << "      Destination MAC: " << eth.dest_mac_str << "\n";
             std::cout << "      Source MAC:      " << eth.src_mac_str << "\n";
