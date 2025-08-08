@@ -16,14 +16,15 @@
 #include <iomanip>
 
 int run_entry() {
-    // Step 1: Create and bind socket
+    // Create and bind socket
     int sock = socket(AF_PACKET, SOCK_RAW, htons(ETH_P_ALL));
     if (sock < 0) {
         perror("[-] Failed to create socket");
         return 1;
     }
 
-    config::Interface iface;
+    // Load interface from config file in build/config/interface.cfg
+    config::Interface iface; 
     std::string iface_name = iface.get_interface();
 
     if (setsockopt(sock, SOL_SOCKET, SO_BINDTODEVICE, iface_name.c_str(), iface_name.length()) < 0) {
