@@ -1,5 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/nids.dir/link.d"
   "CMakeFiles/nids.dir/src/config/interface.cpp.o"
   "CMakeFiles/nids.dir/src/config/interface.cpp.o.d"
   "CMakeFiles/nids.dir/src/entry.cpp.o"
@@ -12,6 +11,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/nids.dir/src/parsers/ethernet.cpp.o.d"
   "CMakeFiles/nids.dir/src/parsers/ipv4.cpp.o"
   "CMakeFiles/nids.dir/src/parsers/ipv4.cpp.o.d"
+  "CMakeFiles/nids.dir/src/parsers/tcp.cpp.o"
+  "CMakeFiles/nids.dir/src/parsers/tcp.cpp.o.d"
   "CMakeFiles/nids.dir/src/utils/decEthernet.cpp.o"
   "CMakeFiles/nids.dir/src/utils/decEthernet.cpp.o.d"
   "CMakeFiles/nids.dir/src/utils/decIPv4.cpp.o"
