@@ -4,6 +4,7 @@
 #include "utils/decIPv4.h"
 #include "parsers/arp.h"
 #include "utils/decEthernet.h"
+#include "parsers/tcp.h"
 
 #include <iostream>
 #include <unistd.h>
@@ -72,17 +73,56 @@ int run_entry() {
             std::cout << "      Source IP:       " << parsers::ipv4_to_string(ipv4.src_ip) << "\n";
             std::cout << "      Destination IP:  " << parsers::ipv4_to_string(ipv4.dest_ip) << "\n";
             std::cout << "      Payload Length:  " << ipv4.payload_length << " bytes\n";
-            if (ipv4.payload_length > 0) {
-                std::cout << "      Payload (hex):   \n";
-                std::cout << "        ";
-                for (size_t i = 0; i < ipv4.payload_length && i < 64; ++i) {
-                    std::cout << std::hex << std::setw(2) << std::setfill('0')
-                            << static_cast<int>(ipv4.payload[i]) << " ";
-                    if ((i + 1) % 16 == 0) std::cout << "\n      ";
+            // if (ipv4.payload_length > 0) {
+            //     std::cout << "      Payload (hex):   \n";
+            //     std::cout << "        ";
+            //     for (size_t i = 0; i < ipv4.payload_length && i < 64; ++i) {
+            //         std::cout << std::hex << std::setw(2) << std::setfill('0')
+            //                 << static_cast<int>(ipv4.payload[i]) << " ";
+            //         if ((i + 1) % 16 == 0) std::cout << "\n      ";
+            //     }
+            //     std::cout << "\n";
+            // } else {
+            //     std::cout << "      No Payload\n";
+            // }
+
+            if ((ipv4.protocol) == 6) {
+                parsers::TCPHeader tcp = parsers::parse_tcp_header(ipv4.payload, ipv4.payload_length);
+
+                std::cout << "  TCP Packet: \n";
+                std::cout << "      Source Port: " << tcp.src_port << "\n";
+                std::cout << "      Destination Port: " << tcp.dest_port << "\n";
+                std::cout << "      Sequence Number: " << tcp.seq_num << "\n";
+                std::cout << "      Acknowledgment Number: " << tcp.ack_num << "\n";
+                std::cout << "      Data Offset (header length in bytes): " << (tcp.data_offset * 4) << "\n";
+
+                // Print flags individually
+                std::cout << "      Flags:\n";
+                std::cout << "        NS:  " << tcp.ns_flag << "\n";
+                std::cout << "        CWR: " << tcp.cwr_flag << "\n";
+                std::cout << "        ECE: " << tcp.ece_flag << "\n";
+                std::cout << "        URG: " << tcp.urg_flag << "\n";
+                std::cout << "        ACK: " << tcp.ack_flag << "\n";
+                std::cout << "        PSH: " << tcp.psh_flag << "\n";
+                std::cout << "        RST: " << tcp.rst_flag << "\n";
+                std::cout << "        SYN: " << tcp.syn_flag << "\n";
+                std::cout << "        FIN: " << tcp.fin_flag << "\n";
+
+                std::cout << "      Window Size: " << tcp.window_size << "\n";
+                std::cout << "      Checksum: " << decoders::checksum_to_string(tcp.checksum) << "\n";
+                std::cout << "      Urgent Pointer: " << tcp.urgent_pointer << "\n";
+                std::cout << "      Options Length: " << static_cast<int>(tcp.options_length) << "\n";
+
+                if (tcp.options_length > 0) {
+                    std::cout << "      Options (hex): ";
+                    for (size_t i = 0; i < tcp.options.size(); ++i) {
+                        std::cout << std::hex << std::setw(2) << std::setfill('0') 
+                                << static_cast<int>(tcp.options[i]) << " ";
+                    }
+                    std::cout << std::dec << "\n"; // reset stream to decimal
+                } else {
+                    std::cout << "      No TCP Options\n";
                 }
-                std::cout << "\n";
-            } else {
-                std::cout << "      No Payload\n";
             }
         }
         // ARP Protocol Implementation
