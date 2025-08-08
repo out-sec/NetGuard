@@ -7,9 +7,13 @@ namespace config {
 
 class Interface {
 public:
-    explicit Interface(const std::string& config_path = "config/interface.cfg");
+    // Default constructor: loads config from build/config/interface.cfg
+    Interface();
 
-    // Returns the interface name selected by user
+    // Constructor: load config from a specific file path
+    explicit Interface(const std::string &config_path);
+
+    // Returns the interface name selected by the user
     std::string get_interface() const;
 
 private:
