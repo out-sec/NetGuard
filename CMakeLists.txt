@@ -21,6 +21,7 @@ set(SOURCES
     src/config/interface.cpp
     src/utils/decIPv4.cpp
     src/parsers/arp.cpp
+    src/parsers/tcp.cpp
 )
 
 # Compiler warnings
