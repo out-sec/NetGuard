@@ -1,0 +1,7 @@
+module HTTP;
+
+type Request = unit {
+    method: bytes &until=b" ";
+    uri:    bytes &until=b" ";
+    version: bytes &until=b"\r\n";
+};

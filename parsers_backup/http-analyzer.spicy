@@ -1,0 +1,13 @@
+module HTTP;
+
+import HTTP;
+
+analyzer HTTPAnalyzer for HTTP::Request {
+    on %done {
+        emit http_request(
+            bytes_to_ascii(self.method),
+            bytes_to_ascii(self.uri),
+            bytes_to_ascii(self.version)
+        );
+    }
+};

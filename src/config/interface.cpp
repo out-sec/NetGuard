@@ -1,7 +1,8 @@
 #include "config/interface.h"
 #include <fstream>
-#include <sstream>
 #include <iostream>
+#include <string>
+#include <algorithm>
 
 namespace config {
 
@@ -18,14 +19,22 @@ void Interface::load_config(const std::string& path) {
     }
 
     std::string line;
-    while (std::getline(file, line)) {
-        if (line.find("interface=") == 0) {
-            interface_name = line.substr(10); // length of "interface="
+    if (std::getline(file, line)) {
+        // Trim whitespace
+        line.erase(line.begin(), std::find_if(line.begin(), line.end(), [](unsigned char ch) {
+            return !std::isspace(ch);
+        }));
+        line.erase(std::find_if(line.rbegin(), line.rend(), [](unsigned char ch) {
+            return !std::isspace(ch);
+        }).base(), line.end());
+
+        if (!line.empty()) {
+            interface_name = line;
             return;
         }
     }
 
-    // Default if not found
+    // Default if file empty or invalid
     interface_name = "eth0";
 }
 

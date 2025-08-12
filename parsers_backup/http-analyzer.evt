@@ -1,0 +1,5 @@
+module HTTP;
+
+export {
+    event http_request(method: string, uri: string, version: string);
+}
