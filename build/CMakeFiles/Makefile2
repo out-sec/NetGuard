@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/president/NetGuard
+CMAKE_SOURCE_DIR = /home/ali-noor/NetGuard_fresh
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/president/NetGuard/build
+CMAKE_BINARY_DIR = /home/ali-noor/NetGuard_fresh/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -81,14 +81,14 @@ clean: CMakeFiles/nids.dir/clean
 CMakeFiles/nids.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/nids.dir/build.make CMakeFiles/nids.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/nids.dir/build.make CMakeFiles/nids.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/president/NetGuard/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Built target nids"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ali-noor/NetGuard_fresh/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12 "Built target nids"
 .PHONY : CMakeFiles/nids.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/nids.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/president/NetGuard/build/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ali-noor/NetGuard_fresh/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/nids.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/president/NetGuard/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ali-noor/NetGuard_fresh/build/CMakeFiles 0
 .PHONY : CMakeFiles/nids.dir/rule
 
 # Convenience name for target.

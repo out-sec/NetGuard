@@ -16,8 +16,10 @@ set(SOURCES
     src/entry.cpp
     src/parsers/ethernet.cpp
     src/parsers/ipv4.cpp
+    src/parsers/http.cpp
     src/utils/decEthernet.cpp
     # src/utils/hex.cpp
+    src/utils/decHttp.cpp
     src/config/interface.cpp
     src/utils/decIPv4.cpp
     src/parsers/arp.cpp
