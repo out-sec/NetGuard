@@ -5,6 +5,9 @@
 #include "parsers/arp.h"
 #include "utils/decEthernet.h"
 #include "parsers/tcp.h"
+#include "parsers/http.h"
+#include "utils/decHttp.h"
+
 
 #include <iostream>
 #include <unistd.h>
@@ -124,6 +127,15 @@ int run_entry() {
                 } else {
                     std::cout << "      No TCP Options\n";
                 }
+// HTTP parsing if any TCP payload exists
+if (tcp.payload_length > 0 && tcp.payload != nullptr) {
+    parsers::HTTPHeader http = parsers::parse_http_header(tcp.payload, tcp.payload_length);
+    if (http.is_http) {
+        std::cout << http.to_string();
+    }
+}
+
+
             }
         }
         // ARP Protocol Implementation

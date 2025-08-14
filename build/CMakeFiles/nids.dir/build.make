@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/president/NetGuard
+CMAKE_SOURCE_DIR = /home/ali-noor/NetGuard_fresh
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/president/NetGuard/build
+CMAKE_BINARY_DIR = /home/ali-noor/NetGuard_fresh/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/nids.dir/depend.make
@@ -70,130 +70,158 @@ include CMakeFiles/nids.dir/progress.make
 include CMakeFiles/nids.dir/flags.make
 
 CMakeFiles/nids.dir/src/main.cpp.o: CMakeFiles/nids.dir/flags.make
-CMakeFiles/nids.dir/src/main.cpp.o: /home/president/NetGuard/src/main.cpp
+CMakeFiles/nids.dir/src/main.cpp.o: /home/ali-noor/NetGuard_fresh/src/main.cpp
 CMakeFiles/nids.dir/src/main.cpp.o: CMakeFiles/nids.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/president/NetGuard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/nids.dir/src/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/nids.dir/src/main.cpp.o -MF CMakeFiles/nids.dir/src/main.cpp.o.d -o CMakeFiles/nids.dir/src/main.cpp.o -c /home/president/NetGuard/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ali-noor/NetGuard_fresh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/nids.dir/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/nids.dir/src/main.cpp.o -MF CMakeFiles/nids.dir/src/main.cpp.o.d -o CMakeFiles/nids.dir/src/main.cpp.o -c /home/ali-noor/NetGuard_fresh/src/main.cpp
 
 CMakeFiles/nids.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/nids.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/president/NetGuard/src/main.cpp > CMakeFiles/nids.dir/src/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ali-noor/NetGuard_fresh/src/main.cpp > CMakeFiles/nids.dir/src/main.cpp.i
 
 CMakeFiles/nids.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/nids.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/president/NetGuard/src/main.cpp -o CMakeFiles/nids.dir/src/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ali-noor/NetGuard_fresh/src/main.cpp -o CMakeFiles/nids.dir/src/main.cpp.s
 
 CMakeFiles/nids.dir/src/entry.cpp.o: CMakeFiles/nids.dir/flags.make
-CMakeFiles/nids.dir/src/entry.cpp.o: /home/president/NetGuard/src/entry.cpp
+CMakeFiles/nids.dir/src/entry.cpp.o: /home/ali-noor/NetGuard_fresh/src/entry.cpp
 CMakeFiles/nids.dir/src/entry.cpp.o: CMakeFiles/nids.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/president/NetGuard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/nids.dir/src/entry.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/nids.dir/src/entry.cpp.o -MF CMakeFiles/nids.dir/src/entry.cpp.o.d -o CMakeFiles/nids.dir/src/entry.cpp.o -c /home/president/NetGuard/src/entry.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ali-noor/NetGuard_fresh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/nids.dir/src/entry.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/nids.dir/src/entry.cpp.o -MF CMakeFiles/nids.dir/src/entry.cpp.o.d -o CMakeFiles/nids.dir/src/entry.cpp.o -c /home/ali-noor/NetGuard_fresh/src/entry.cpp
 
 CMakeFiles/nids.dir/src/entry.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/nids.dir/src/entry.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/president/NetGuard/src/entry.cpp > CMakeFiles/nids.dir/src/entry.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ali-noor/NetGuard_fresh/src/entry.cpp > CMakeFiles/nids.dir/src/entry.cpp.i
 
 CMakeFiles/nids.dir/src/entry.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/nids.dir/src/entry.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/president/NetGuard/src/entry.cpp -o CMakeFiles/nids.dir/src/entry.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ali-noor/NetGuard_fresh/src/entry.cpp -o CMakeFiles/nids.dir/src/entry.cpp.s
 
 CMakeFiles/nids.dir/src/parsers/ethernet.cpp.o: CMakeFiles/nids.dir/flags.make
-CMakeFiles/nids.dir/src/parsers/ethernet.cpp.o: /home/president/NetGuard/src/parsers/ethernet.cpp
+CMakeFiles/nids.dir/src/parsers/ethernet.cpp.o: /home/ali-noor/NetGuard_fresh/src/parsers/ethernet.cpp
 CMakeFiles/nids.dir/src/parsers/ethernet.cpp.o: CMakeFiles/nids.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/president/NetGuard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/nids.dir/src/parsers/ethernet.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/nids.dir/src/parsers/ethernet.cpp.o -MF CMakeFiles/nids.dir/src/parsers/ethernet.cpp.o.d -o CMakeFiles/nids.dir/src/parsers/ethernet.cpp.o -c /home/president/NetGuard/src/parsers/ethernet.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ali-noor/NetGuard_fresh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/nids.dir/src/parsers/ethernet.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/nids.dir/src/parsers/ethernet.cpp.o -MF CMakeFiles/nids.dir/src/parsers/ethernet.cpp.o.d -o CMakeFiles/nids.dir/src/parsers/ethernet.cpp.o -c /home/ali-noor/NetGuard_fresh/src/parsers/ethernet.cpp
 
 CMakeFiles/nids.dir/src/parsers/ethernet.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/nids.dir/src/parsers/ethernet.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/president/NetGuard/src/parsers/ethernet.cpp > CMakeFiles/nids.dir/src/parsers/ethernet.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ali-noor/NetGuard_fresh/src/parsers/ethernet.cpp > CMakeFiles/nids.dir/src/parsers/ethernet.cpp.i
 
 CMakeFiles/nids.dir/src/parsers/ethernet.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/nids.dir/src/parsers/ethernet.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/president/NetGuard/src/parsers/ethernet.cpp -o CMakeFiles/nids.dir/src/parsers/ethernet.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ali-noor/NetGuard_fresh/src/parsers/ethernet.cpp -o CMakeFiles/nids.dir/src/parsers/ethernet.cpp.s
 
 CMakeFiles/nids.dir/src/parsers/ipv4.cpp.o: CMakeFiles/nids.dir/flags.make
-CMakeFiles/nids.dir/src/parsers/ipv4.cpp.o: /home/president/NetGuard/src/parsers/ipv4.cpp
+CMakeFiles/nids.dir/src/parsers/ipv4.cpp.o: /home/ali-noor/NetGuard_fresh/src/parsers/ipv4.cpp
 CMakeFiles/nids.dir/src/parsers/ipv4.cpp.o: CMakeFiles/nids.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/president/NetGuard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/nids.dir/src/parsers/ipv4.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/nids.dir/src/parsers/ipv4.cpp.o -MF CMakeFiles/nids.dir/src/parsers/ipv4.cpp.o.d -o CMakeFiles/nids.dir/src/parsers/ipv4.cpp.o -c /home/president/NetGuard/src/parsers/ipv4.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ali-noor/NetGuard_fresh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/nids.dir/src/parsers/ipv4.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/nids.dir/src/parsers/ipv4.cpp.o -MF CMakeFiles/nids.dir/src/parsers/ipv4.cpp.o.d -o CMakeFiles/nids.dir/src/parsers/ipv4.cpp.o -c /home/ali-noor/NetGuard_fresh/src/parsers/ipv4.cpp
 
 CMakeFiles/nids.dir/src/parsers/ipv4.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/nids.dir/src/parsers/ipv4.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/president/NetGuard/src/parsers/ipv4.cpp > CMakeFiles/nids.dir/src/parsers/ipv4.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ali-noor/NetGuard_fresh/src/parsers/ipv4.cpp > CMakeFiles/nids.dir/src/parsers/ipv4.cpp.i
 
 CMakeFiles/nids.dir/src/parsers/ipv4.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/nids.dir/src/parsers/ipv4.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/president/NetGuard/src/parsers/ipv4.cpp -o CMakeFiles/nids.dir/src/parsers/ipv4.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ali-noor/NetGuard_fresh/src/parsers/ipv4.cpp -o CMakeFiles/nids.dir/src/parsers/ipv4.cpp.s
+
+CMakeFiles/nids.dir/src/parsers/http.cpp.o: CMakeFiles/nids.dir/flags.make
+CMakeFiles/nids.dir/src/parsers/http.cpp.o: /home/ali-noor/NetGuard_fresh/src/parsers/http.cpp
+CMakeFiles/nids.dir/src/parsers/http.cpp.o: CMakeFiles/nids.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ali-noor/NetGuard_fresh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/nids.dir/src/parsers/http.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/nids.dir/src/parsers/http.cpp.o -MF CMakeFiles/nids.dir/src/parsers/http.cpp.o.d -o CMakeFiles/nids.dir/src/parsers/http.cpp.o -c /home/ali-noor/NetGuard_fresh/src/parsers/http.cpp
+
+CMakeFiles/nids.dir/src/parsers/http.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/nids.dir/src/parsers/http.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ali-noor/NetGuard_fresh/src/parsers/http.cpp > CMakeFiles/nids.dir/src/parsers/http.cpp.i
+
+CMakeFiles/nids.dir/src/parsers/http.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/nids.dir/src/parsers/http.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ali-noor/NetGuard_fresh/src/parsers/http.cpp -o CMakeFiles/nids.dir/src/parsers/http.cpp.s
 
 CMakeFiles/nids.dir/src/utils/decEthernet.cpp.o: CMakeFiles/nids.dir/flags.make
-CMakeFiles/nids.dir/src/utils/decEthernet.cpp.o: /home/president/NetGuard/src/utils/decEthernet.cpp
+CMakeFiles/nids.dir/src/utils/decEthernet.cpp.o: /home/ali-noor/NetGuard_fresh/src/utils/decEthernet.cpp
 CMakeFiles/nids.dir/src/utils/decEthernet.cpp.o: CMakeFiles/nids.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/president/NetGuard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/nids.dir/src/utils/decEthernet.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/nids.dir/src/utils/decEthernet.cpp.o -MF CMakeFiles/nids.dir/src/utils/decEthernet.cpp.o.d -o CMakeFiles/nids.dir/src/utils/decEthernet.cpp.o -c /home/president/NetGuard/src/utils/decEthernet.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ali-noor/NetGuard_fresh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/nids.dir/src/utils/decEthernet.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/nids.dir/src/utils/decEthernet.cpp.o -MF CMakeFiles/nids.dir/src/utils/decEthernet.cpp.o.d -o CMakeFiles/nids.dir/src/utils/decEthernet.cpp.o -c /home/ali-noor/NetGuard_fresh/src/utils/decEthernet.cpp
 
 CMakeFiles/nids.dir/src/utils/decEthernet.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/nids.dir/src/utils/decEthernet.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/president/NetGuard/src/utils/decEthernet.cpp > CMakeFiles/nids.dir/src/utils/decEthernet.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ali-noor/NetGuard_fresh/src/utils/decEthernet.cpp > CMakeFiles/nids.dir/src/utils/decEthernet.cpp.i
 
 CMakeFiles/nids.dir/src/utils/decEthernet.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/nids.dir/src/utils/decEthernet.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/president/NetGuard/src/utils/decEthernet.cpp -o CMakeFiles/nids.dir/src/utils/decEthernet.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ali-noor/NetGuard_fresh/src/utils/decEthernet.cpp -o CMakeFiles/nids.dir/src/utils/decEthernet.cpp.s
+
+CMakeFiles/nids.dir/src/utils/decHttp.cpp.o: CMakeFiles/nids.dir/flags.make
+CMakeFiles/nids.dir/src/utils/decHttp.cpp.o: /home/ali-noor/NetGuard_fresh/src/utils/decHttp.cpp
+CMakeFiles/nids.dir/src/utils/decHttp.cpp.o: CMakeFiles/nids.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ali-noor/NetGuard_fresh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/nids.dir/src/utils/decHttp.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/nids.dir/src/utils/decHttp.cpp.o -MF CMakeFiles/nids.dir/src/utils/decHttp.cpp.o.d -o CMakeFiles/nids.dir/src/utils/decHttp.cpp.o -c /home/ali-noor/NetGuard_fresh/src/utils/decHttp.cpp
+
+CMakeFiles/nids.dir/src/utils/decHttp.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/nids.dir/src/utils/decHttp.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ali-noor/NetGuard_fresh/src/utils/decHttp.cpp > CMakeFiles/nids.dir/src/utils/decHttp.cpp.i
+
+CMakeFiles/nids.dir/src/utils/decHttp.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/nids.dir/src/utils/decHttp.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ali-noor/NetGuard_fresh/src/utils/decHttp.cpp -o CMakeFiles/nids.dir/src/utils/decHttp.cpp.s
 
 CMakeFiles/nids.dir/src/config/interface.cpp.o: CMakeFiles/nids.dir/flags.make
-CMakeFiles/nids.dir/src/config/interface.cpp.o: /home/president/NetGuard/src/config/interface.cpp
+CMakeFiles/nids.dir/src/config/interface.cpp.o: /home/ali-noor/NetGuard_fresh/src/config/interface.cpp
 CMakeFiles/nids.dir/src/config/interface.cpp.o: CMakeFiles/nids.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/president/NetGuard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/nids.dir/src/config/interface.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/nids.dir/src/config/interface.cpp.o -MF CMakeFiles/nids.dir/src/config/interface.cpp.o.d -o CMakeFiles/nids.dir/src/config/interface.cpp.o -c /home/president/NetGuard/src/config/interface.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ali-noor/NetGuard_fresh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/nids.dir/src/config/interface.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/nids.dir/src/config/interface.cpp.o -MF CMakeFiles/nids.dir/src/config/interface.cpp.o.d -o CMakeFiles/nids.dir/src/config/interface.cpp.o -c /home/ali-noor/NetGuard_fresh/src/config/interface.cpp
 
 CMakeFiles/nids.dir/src/config/interface.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/nids.dir/src/config/interface.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/president/NetGuard/src/config/interface.cpp > CMakeFiles/nids.dir/src/config/interface.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ali-noor/NetGuard_fresh/src/config/interface.cpp > CMakeFiles/nids.dir/src/config/interface.cpp.i
 
 CMakeFiles/nids.dir/src/config/interface.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/nids.dir/src/config/interface.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/president/NetGuard/src/config/interface.cpp -o CMakeFiles/nids.dir/src/config/interface.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ali-noor/NetGuard_fresh/src/config/interface.cpp -o CMakeFiles/nids.dir/src/config/interface.cpp.s
 
 CMakeFiles/nids.dir/src/utils/decIPv4.cpp.o: CMakeFiles/nids.dir/flags.make
-CMakeFiles/nids.dir/src/utils/decIPv4.cpp.o: /home/president/NetGuard/src/utils/decIPv4.cpp
+CMakeFiles/nids.dir/src/utils/decIPv4.cpp.o: /home/ali-noor/NetGuard_fresh/src/utils/decIPv4.cpp
 CMakeFiles/nids.dir/src/utils/decIPv4.cpp.o: CMakeFiles/nids.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/president/NetGuard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/nids.dir/src/utils/decIPv4.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/nids.dir/src/utils/decIPv4.cpp.o -MF CMakeFiles/nids.dir/src/utils/decIPv4.cpp.o.d -o CMakeFiles/nids.dir/src/utils/decIPv4.cpp.o -c /home/president/NetGuard/src/utils/decIPv4.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ali-noor/NetGuard_fresh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/nids.dir/src/utils/decIPv4.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/nids.dir/src/utils/decIPv4.cpp.o -MF CMakeFiles/nids.dir/src/utils/decIPv4.cpp.o.d -o CMakeFiles/nids.dir/src/utils/decIPv4.cpp.o -c /home/ali-noor/NetGuard_fresh/src/utils/decIPv4.cpp
 
 CMakeFiles/nids.dir/src/utils/decIPv4.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/nids.dir/src/utils/decIPv4.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/president/NetGuard/src/utils/decIPv4.cpp > CMakeFiles/nids.dir/src/utils/decIPv4.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ali-noor/NetGuard_fresh/src/utils/decIPv4.cpp > CMakeFiles/nids.dir/src/utils/decIPv4.cpp.i
 
 CMakeFiles/nids.dir/src/utils/decIPv4.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/nids.dir/src/utils/decIPv4.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/president/NetGuard/src/utils/decIPv4.cpp -o CMakeFiles/nids.dir/src/utils/decIPv4.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ali-noor/NetGuard_fresh/src/utils/decIPv4.cpp -o CMakeFiles/nids.dir/src/utils/decIPv4.cpp.s
 
 CMakeFiles/nids.dir/src/parsers/arp.cpp.o: CMakeFiles/nids.dir/flags.make
-CMakeFiles/nids.dir/src/parsers/arp.cpp.o: /home/president/NetGuard/src/parsers/arp.cpp
+CMakeFiles/nids.dir/src/parsers/arp.cpp.o: /home/ali-noor/NetGuard_fresh/src/parsers/arp.cpp
 CMakeFiles/nids.dir/src/parsers/arp.cpp.o: CMakeFiles/nids.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/president/NetGuard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/nids.dir/src/parsers/arp.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/nids.dir/src/parsers/arp.cpp.o -MF CMakeFiles/nids.dir/src/parsers/arp.cpp.o.d -o CMakeFiles/nids.dir/src/parsers/arp.cpp.o -c /home/president/NetGuard/src/parsers/arp.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ali-noor/NetGuard_fresh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/nids.dir/src/parsers/arp.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/nids.dir/src/parsers/arp.cpp.o -MF CMakeFiles/nids.dir/src/parsers/arp.cpp.o.d -o CMakeFiles/nids.dir/src/parsers/arp.cpp.o -c /home/ali-noor/NetGuard_fresh/src/parsers/arp.cpp
 
 CMakeFiles/nids.dir/src/parsers/arp.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/nids.dir/src/parsers/arp.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/president/NetGuard/src/parsers/arp.cpp > CMakeFiles/nids.dir/src/parsers/arp.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ali-noor/NetGuard_fresh/src/parsers/arp.cpp > CMakeFiles/nids.dir/src/parsers/arp.cpp.i
 
 CMakeFiles/nids.dir/src/parsers/arp.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/nids.dir/src/parsers/arp.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/president/NetGuard/src/parsers/arp.cpp -o CMakeFiles/nids.dir/src/parsers/arp.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ali-noor/NetGuard_fresh/src/parsers/arp.cpp -o CMakeFiles/nids.dir/src/parsers/arp.cpp.s
 
 CMakeFiles/nids.dir/src/parsers/tcp.cpp.o: CMakeFiles/nids.dir/flags.make
-CMakeFiles/nids.dir/src/parsers/tcp.cpp.o: /home/president/NetGuard/src/parsers/tcp.cpp
+CMakeFiles/nids.dir/src/parsers/tcp.cpp.o: /home/ali-noor/NetGuard_fresh/src/parsers/tcp.cpp
 CMakeFiles/nids.dir/src/parsers/tcp.cpp.o: CMakeFiles/nids.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/president/NetGuard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/nids.dir/src/parsers/tcp.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/nids.dir/src/parsers/tcp.cpp.o -MF CMakeFiles/nids.dir/src/parsers/tcp.cpp.o.d -o CMakeFiles/nids.dir/src/parsers/tcp.cpp.o -c /home/president/NetGuard/src/parsers/tcp.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ali-noor/NetGuard_fresh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/nids.dir/src/parsers/tcp.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/nids.dir/src/parsers/tcp.cpp.o -MF CMakeFiles/nids.dir/src/parsers/tcp.cpp.o.d -o CMakeFiles/nids.dir/src/parsers/tcp.cpp.o -c /home/ali-noor/NetGuard_fresh/src/parsers/tcp.cpp
 
 CMakeFiles/nids.dir/src/parsers/tcp.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/nids.dir/src/parsers/tcp.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/president/NetGuard/src/parsers/tcp.cpp > CMakeFiles/nids.dir/src/parsers/tcp.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ali-noor/NetGuard_fresh/src/parsers/tcp.cpp > CMakeFiles/nids.dir/src/parsers/tcp.cpp.i
 
 CMakeFiles/nids.dir/src/parsers/tcp.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/nids.dir/src/parsers/tcp.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/president/NetGuard/src/parsers/tcp.cpp -o CMakeFiles/nids.dir/src/parsers/tcp.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ali-noor/NetGuard_fresh/src/parsers/tcp.cpp -o CMakeFiles/nids.dir/src/parsers/tcp.cpp.s
 
 # Object files for target nids
 nids_OBJECTS = \
@@ -201,7 +229,9 @@ nids_OBJECTS = \
 "CMakeFiles/nids.dir/src/entry.cpp.o" \
 "CMakeFiles/nids.dir/src/parsers/ethernet.cpp.o" \
 "CMakeFiles/nids.dir/src/parsers/ipv4.cpp.o" \
+"CMakeFiles/nids.dir/src/parsers/http.cpp.o" \
 "CMakeFiles/nids.dir/src/utils/decEthernet.cpp.o" \
+"CMakeFiles/nids.dir/src/utils/decHttp.cpp.o" \
 "CMakeFiles/nids.dir/src/config/interface.cpp.o" \
 "CMakeFiles/nids.dir/src/utils/decIPv4.cpp.o" \
 "CMakeFiles/nids.dir/src/parsers/arp.cpp.o" \
@@ -214,14 +244,16 @@ nids: CMakeFiles/nids.dir/src/main.cpp.o
 nids: CMakeFiles/nids.dir/src/entry.cpp.o
 nids: CMakeFiles/nids.dir/src/parsers/ethernet.cpp.o
 nids: CMakeFiles/nids.dir/src/parsers/ipv4.cpp.o
+nids: CMakeFiles/nids.dir/src/parsers/http.cpp.o
 nids: CMakeFiles/nids.dir/src/utils/decEthernet.cpp.o
+nids: CMakeFiles/nids.dir/src/utils/decHttp.cpp.o
 nids: CMakeFiles/nids.dir/src/config/interface.cpp.o
 nids: CMakeFiles/nids.dir/src/utils/decIPv4.cpp.o
 nids: CMakeFiles/nids.dir/src/parsers/arp.cpp.o
 nids: CMakeFiles/nids.dir/src/parsers/tcp.cpp.o
 nids: CMakeFiles/nids.dir/build.make
 nids: CMakeFiles/nids.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/president/NetGuard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable nids"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ali-noor/NetGuard_fresh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable nids"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/nids.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -233,6 +265,6 @@ CMakeFiles/nids.dir/clean:
 .PHONY : CMakeFiles/nids.dir/clean
 
 CMakeFiles/nids.dir/depend:
-	cd /home/president/NetGuard/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/president/NetGuard /home/president/NetGuard /home/president/NetGuard/build /home/president/NetGuard/build /home/president/NetGuard/build/CMakeFiles/nids.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/ali-noor/NetGuard_fresh/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ali-noor/NetGuard_fresh /home/ali-noor/NetGuard_fresh /home/ali-noor/NetGuard_fresh/build /home/ali-noor/NetGuard_fresh/build /home/ali-noor/NetGuard_fresh/build/CMakeFiles/nids.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/nids.dir/depend
 

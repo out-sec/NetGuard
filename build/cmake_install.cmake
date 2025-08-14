@@ -1,4 +1,4 @@
-# Install script for directory: /home/president/NetGuard
+# Install script for directory: /home/ali-noor/NetGuard_fresh
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/president/NetGuard/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/ali-noor/NetGuard_fresh/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

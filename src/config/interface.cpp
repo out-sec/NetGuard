@@ -33,7 +33,7 @@ void Interface::load_config(const std::string& path) {
     std::ifstream file(path);
     if (!file) {
         std::cerr << "[-] Config file not found: " << path << "\n";
-        interface_name = "eth0"; // fallback
+        interface_name = "ens33"; // fallback
         return;
     }
 
@@ -46,7 +46,7 @@ void Interface::load_config(const std::string& path) {
     }
 
     // If no valid line found
-    interface_name = "eth0";
+    interface_name = "ens33";
 }
 
 std::string Interface::get_interface() const {

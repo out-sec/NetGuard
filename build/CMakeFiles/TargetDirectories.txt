@@ -1,3 +1,3 @@
-/home/president/NetGuard/build/CMakeFiles/nids.dir
-/home/president/NetGuard/build/CMakeFiles/edit_cache.dir
-/home/president/NetGuard/build/CMakeFiles/rebuild_cache.dir
+/home/ali-noor/NetGuard_fresh/build/CMakeFiles/nids.dir
+/home/ali-noor/NetGuard_fresh/build/CMakeFiles/edit_cache.dir
+/home/ali-noor/NetGuard_fresh/build/CMakeFiles/rebuild_cache.dir
