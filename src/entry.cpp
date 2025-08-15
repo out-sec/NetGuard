@@ -5,6 +5,7 @@
 #include "parsers/arp.h"
 #include "utils/decEthernet.h"
 #include "parsers/tcp.h"
+#include "parsers/ftp.h"
 
 #include <iostream>
 #include <unistd.h>
@@ -113,6 +114,37 @@ int run_entry() {
                 std::cout << "      Checksum: " << decoders::checksum_to_string(tcp.checksum) << "\n";
                 std::cout << "      Urgent Pointer: " << tcp.urgent_pointer << "\n";
                 std::cout << "      Options Length: " << static_cast<int>(tcp.options_length) << "\n";
+
+                // Check for FTP Control Port (21)
+                if (tcp.src_port == 21 || tcp.dest_port == 21) {
+                    bool from_server = (tcp.src_port == 21);
+                    std::size_t tcp_header_len = tcp.data_offset * 4;
+
+                    if (ipv4.payload_length > tcp_header_len) {
+                        const uint8_t* ftp_payload = ipv4.payload + tcp_header_len;
+                        std::size_t ftp_len = ipv4.payload_length - tcp_header_len;
+
+                        parsers::FTPCommand ftp = parsers::parse_ftp_command(ftp_payload, ftp_len, from_server);
+
+                        // Print in YOUR order
+                        if (ftp.is_response) {
+                            std::cout << "  FTP Response Code: " << ftp.response_code << "\n";
+                            for (const auto &line : ftp.responses) {
+                                std::cout << "      " << line << "\n";
+                            }
+                            std::cout << "  Response Complete: " << (ftp.is_response_complete ? "Yes" : "No") << "\n";
+                        } else {
+                            std::cout << "  FTP Command: " << ftp.command << "\n";
+                            if (!ftp.arguments.empty()) {
+                                std::cout << "  Arguments: ";
+                                for (const auto &arg : ftp.arguments) {
+                                    std::cout << arg << " ";
+                                }
+                                std::cout << "\n";
+                            }
+                        }
+                    }
+                }
 
                 if (tcp.options_length > 0) {
                     std::cout << "      Options (hex): ";
