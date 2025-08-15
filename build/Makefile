@@ -249,6 +249,30 @@ src/parsers/ethernet.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/nids.dir/build.make CMakeFiles/nids.dir/src/parsers/ethernet.cpp.s
 .PHONY : src/parsers/ethernet.cpp.s
 
+src/parsers/ftp.o: src/parsers/ftp.cpp.o
+.PHONY : src/parsers/ftp.o
+
+# target to build an object file
+src/parsers/ftp.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nids.dir/build.make CMakeFiles/nids.dir/src/parsers/ftp.cpp.o
+.PHONY : src/parsers/ftp.cpp.o
+
+src/parsers/ftp.i: src/parsers/ftp.cpp.i
+.PHONY : src/parsers/ftp.i
+
+# target to preprocess a source file
+src/parsers/ftp.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nids.dir/build.make CMakeFiles/nids.dir/src/parsers/ftp.cpp.i
+.PHONY : src/parsers/ftp.cpp.i
+
+src/parsers/ftp.s: src/parsers/ftp.cpp.s
+.PHONY : src/parsers/ftp.s
+
+# target to generate assembly for a file
+src/parsers/ftp.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nids.dir/build.make CMakeFiles/nids.dir/src/parsers/ftp.cpp.s
+.PHONY : src/parsers/ftp.cpp.s
+
 src/parsers/ipv4.o: src/parsers/ipv4.cpp.o
 .PHONY : src/parsers/ipv4.o
 
@@ -369,6 +393,9 @@ help:
 	@echo "... src/parsers/ethernet.o"
 	@echo "... src/parsers/ethernet.i"
 	@echo "... src/parsers/ethernet.s"
+	@echo "... src/parsers/ftp.o"
+	@echo "... src/parsers/ftp.i"
+	@echo "... src/parsers/ftp.s"
 	@echo "... src/parsers/ipv4.o"
 	@echo "... src/parsers/ipv4.i"
 	@echo "... src/parsers/ipv4.s"

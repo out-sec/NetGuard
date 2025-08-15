@@ -9,6 +9,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/nids.dir/src/parsers/arp.cpp.o.d"
   "CMakeFiles/nids.dir/src/parsers/ethernet.cpp.o"
   "CMakeFiles/nids.dir/src/parsers/ethernet.cpp.o.d"
+  "CMakeFiles/nids.dir/src/parsers/ftp.cpp.o"
+  "CMakeFiles/nids.dir/src/parsers/ftp.cpp.o.d"
   "CMakeFiles/nids.dir/src/parsers/ipv4.cpp.o"
   "CMakeFiles/nids.dir/src/parsers/ipv4.cpp.o.d"
   "CMakeFiles/nids.dir/src/parsers/tcp.cpp.o"
