@@ -1,63 +1,100 @@
 #include "parsers/http.h"
+#include "utils/decHttp.h"
 #include <sstream>
 #include <algorithm>
+#include <iomanip>
 
-using namespace parsers;
+namespace parsers {
 
-static std::string trim(const std::string& s) {
-    auto start = s.find_first_not_of(" \t\r\n");
-    auto end = s.find_last_not_of(" \t\r\n");
-    if (start == std::string::npos) return "";
-    return s.substr(start, end - start + 1);
-}
+HTTPHeader parse_http_header(const uint8_t* buffer, size_t length) {
+    HTTPHeader out;
+    auto d = utils::decode_http(buffer, length);
+    if (!d.has_value()) return out;
 
-HTTPHeader parsers::parse_http_header(const uint8_t* buffer, size_t length) {
-    HTTPHeader header;
-    std::string data(reinterpret_cast<const char*>(buffer), length);
-
-    std::istringstream stream(data);
-    std::string line;
-
-    if (!std::getline(stream, line)) return header;
-
-    if (line.rfind("HTTP/", 0) == 0) {
-        header.is_http = true;
-        header.is_request = false;
-        std::istringstream status_line(line);
-        std::string version;
-        status_line >> version >> header.status_code;
-        std::getline(status_line, header.reason_phrase);
-        header.version = version;
-        header.reason_phrase = trim(header.reason_phrase);
-    }
-    else {
-        header.is_http = true;
-        header.is_request = true;
-        std::istringstream request_line(line);
-        request_line >> header.method >> header.path >> header.version;
-    }
-
-    while (std::getline(stream, line) && line != "\r") {
-        auto colon = line.find(':');
-        if (colon != std::string::npos) {
-            std::string key = trim(line.substr(0, colon));
-            std::string value = trim(line.substr(colon + 1));
-            header.headers[key] = value;
-        }
-    }
-
-    return header;
+    out.is_http        = d->is_http;
+    out.is_request     = d->is_request;
+    out.complete       = d->complete;
+    out.method         = d->method;
+    out.path           = d->path;
+    out.version        = d->version;
+    out.status_code    = d->status_code;
+    out.reason_phrase  = d->reason_phrase;
+    out.headers        = d->headers;
+    out.header_bytes   = d->header_bytes;
+    out.body           = d->body;
+    out.body_bytes     = d->body_bytes;
+    out.content_length = d->content_length;
+    out.chunked        = d->chunked;
+    out.form_fields    = d->form_fields;
+    out.json_pretty    = d->json_pretty; // already filled in decode_http
+    return out;
 }
 
 std::string HTTPHeader::to_string() const {
-    std::ostringstream out;
+    if (!is_http) return {};
+    std::ostringstream oss;
+    oss << "  HTTP:\n";
     if (is_request) {
-        out << method << " " << path << " " << version << "\n";
+        oss << "      Type:            Request\n"
+            << "      Request-Line:    " << method << " " << path << " " << version << "\n";
     } else {
-        out << version << " " << status_code << " " << reason_phrase << "\n";
+        oss << "      Type:            Response\n"
+            << "      Status-Line:     " << version << " " << status_code << " " << reason_phrase << "\n";
     }
-    for (const auto& h : headers) {
-        out << h.first << ": " << h.second << "\n";
+    oss << "      Header Bytes:    " << header_bytes << "\n";
+    oss << "      Content-Length:  " << content_length << (chunked ? " (chunked)" : "") << "\n";
+    oss << "      Complete:        " << (complete ? "yes" : "no") << "\n";
+
+    if (!headers.empty()) {
+        oss << "      Headers:\n";
+        for (const auto& kv : headers) {
+            oss << "          " << kv.first << ": " << kv.second << "\n";
+        }
     }
-    return out.str();
+
+    if (body_bytes > 0) {
+        oss << "      Body (" << body_bytes << " bytes):\n";
+        if (!form_fields.empty()) {
+            // Handle form-urlencoded body
+            for (const auto& kv : form_fields) {
+                oss << "          " << kv.first << " = " << kv.second << "\n";
+            }
+        } else if (!json_pretty.empty()) {
+            // Pretty JSON body
+            std::istringstream js(json_pretty);
+            std::string line;
+            while (std::getline(js, line)) {
+                oss << "          " << line << "\n";
+            }
+        } else {
+            // Fallback: raw body with non-printables replaced
+            const size_t MAX_SHOW = 16 * 1024 * 1024; // 16 MB safety cap
+            size_t show = std::min(body.size(), MAX_SHOW);
+            std::string clip = body.substr(0, show);
+            for (auto& c : clip) {
+                unsigned char uc = static_cast<unsigned char>(c);
+                if (uc < 32 && c != '\r' && c != '\n' && c != '\t') c = '.';
+            }
+            std::istringstream bs(clip);
+            std::string line;
+            while (std::getline(bs, line)) {
+                oss << "          " << line << "\n";
+            }
+            if (body.size() > show) {
+                oss << "          ... (truncated, " << body.size() - show << " bytes more)\n";
+            }
+        }
+    }
+    return oss.str();
 }
+
+// Wrapper to expose utils::decode_http through the parsers namespace
+std::optional<utils::HTTPDecodedData>
+decode_http(const unsigned char* buffer, unsigned long length) {
+    return utils::decode_http(
+        reinterpret_cast<const uint8_t*>(buffer),
+        static_cast<size_t>(length)
+    );
+}
+
+} // namespace parsers
