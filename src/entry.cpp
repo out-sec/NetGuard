@@ -1,4 +1,4 @@
-// src/entry.cpp
+// src/entry.cpp (merged: original functionality restored + FTP tracking)
 #include "config/interface.h"
 #include "parsers/ethernet.h"
 #include "parsers/ipv4.h"
@@ -8,6 +8,7 @@
 #include "parsers/tcp.h"
 #include "parsers/http.h"
 #include "utils/decHttp.h"
+#include "parsers/ftp.h"
 
 #include <iostream>
 #include <unistd.h>
@@ -43,6 +44,10 @@ int run_entry() {
 
     // Step 2: Capture and parse packets
     uint8_t buffer[65536];
+
+    // FTP session tracker (learns PORT/PASV/EPRT/EPSV and correlates data flows)
+    parsers::FTPSessionTracker ftp_tracker;
+
     while (true) {
         ssize_t len = recvfrom(sock, buffer, sizeof(buffer), 0, nullptr, nullptr);
         if (len < 0) {
@@ -116,6 +121,41 @@ int run_entry() {
                 } else {
                     std::cout << "      No TCP Options\n";
                 }
+
+                // --- FTP handling (control + data correlation) ---
+                if (tcp.payload_length > 0 && tcp.payload != nullptr) {
+                    parsers::FourTuple flow{
+                        parsers::ipv4_to_string(ipv4.src_ip),
+                        tcp.src_port,
+                        parsers::ipv4_to_string(ipv4.dest_ip),
+                        tcp.dest_port
+                    };
+
+                    bool is_ftp_control = (tcp.src_port == 21 || tcp.dest_port == 21);
+                    bool from_server = (tcp.src_port == 21);
+
+                    if (is_ftp_control) {
+                        // mark/control the flow and parse control payload
+                        ftp_tracker.track_control(flow);
+                        parsers::FTPCommand cmd = ftp_tracker.on_control_payload(flow, tcp.payload, tcp.payload_length, from_server);
+
+                        std::cout << "[FTP CTRL] "
+                                  << flow.src_ip << ":" << flow.src_port << " -> "
+                                  << flow.dst_ip << ":" << flow.dst_port << " | "
+                                  << cmd.to_string() << "\n";
+                        //break;
+                    } else {
+                        // not control; check whether this matches a learned data flow
+                        if (ftp_tracker.is_ftp_data_flow(flow)) {
+                            ftp_tracker.remember_data_flow(flow);
+                            std::cout << "[FTP DATA] "
+                                      << flow.src_ip << ":" << flow.src_port << " -> "
+                                      << flow.dst_ip << ":" << flow.dst_port
+                                      << " | " << tcp.payload_length << " bytes\n";
+                            //break;
+                        }
+                    }
+                } // end FTP handling
 
                 // HTTP parsing if any TCP payload exists
                 if (tcp.payload_length > 0 && tcp.payload != nullptr) {
