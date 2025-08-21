@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/president/NetGuard
+CMAKE_SOURCE_DIR = /home/ali-noor/NetGuard_review
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/president/NetGuard/build
+CMAKE_BINARY_DIR = /home/ali-noor/NetGuard_review/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/president/NetGuard/build/CMakeFiles /home/president/NetGuard/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ali-noor/NetGuard_review/build/CMakeFiles /home/ali-noor/NetGuard_review/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/president/NetGuard/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ali-noor/NetGuard_review/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -273,6 +273,30 @@ src/parsers/ftp.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/nids.dir/build.make CMakeFiles/nids.dir/src/parsers/ftp.cpp.s
 .PHONY : src/parsers/ftp.cpp.s
 
+src/parsers/http.o: src/parsers/http.cpp.o
+.PHONY : src/parsers/http.o
+
+# target to build an object file
+src/parsers/http.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nids.dir/build.make CMakeFiles/nids.dir/src/parsers/http.cpp.o
+.PHONY : src/parsers/http.cpp.o
+
+src/parsers/http.i: src/parsers/http.cpp.i
+.PHONY : src/parsers/http.i
+
+# target to preprocess a source file
+src/parsers/http.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nids.dir/build.make CMakeFiles/nids.dir/src/parsers/http.cpp.i
+.PHONY : src/parsers/http.cpp.i
+
+src/parsers/http.s: src/parsers/http.cpp.s
+.PHONY : src/parsers/http.s
+
+# target to generate assembly for a file
+src/parsers/http.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nids.dir/build.make CMakeFiles/nids.dir/src/parsers/http.cpp.s
+.PHONY : src/parsers/http.cpp.s
+
 src/parsers/ipv4.o: src/parsers/ipv4.cpp.o
 .PHONY : src/parsers/ipv4.o
 
@@ -345,6 +369,30 @@ src/utils/decEthernet.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/nids.dir/build.make CMakeFiles/nids.dir/src/utils/decEthernet.cpp.s
 .PHONY : src/utils/decEthernet.cpp.s
 
+src/utils/decHttp.o: src/utils/decHttp.cpp.o
+.PHONY : src/utils/decHttp.o
+
+# target to build an object file
+src/utils/decHttp.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nids.dir/build.make CMakeFiles/nids.dir/src/utils/decHttp.cpp.o
+.PHONY : src/utils/decHttp.cpp.o
+
+src/utils/decHttp.i: src/utils/decHttp.cpp.i
+.PHONY : src/utils/decHttp.i
+
+# target to preprocess a source file
+src/utils/decHttp.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nids.dir/build.make CMakeFiles/nids.dir/src/utils/decHttp.cpp.i
+.PHONY : src/utils/decHttp.cpp.i
+
+src/utils/decHttp.s: src/utils/decHttp.cpp.s
+.PHONY : src/utils/decHttp.s
+
+# target to generate assembly for a file
+src/utils/decHttp.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nids.dir/build.make CMakeFiles/nids.dir/src/utils/decHttp.cpp.s
+.PHONY : src/utils/decHttp.cpp.s
+
 src/utils/decIPv4.o: src/utils/decIPv4.cpp.o
 .PHONY : src/utils/decIPv4.o
 
@@ -396,6 +444,9 @@ help:
 	@echo "... src/parsers/ftp.o"
 	@echo "... src/parsers/ftp.i"
 	@echo "... src/parsers/ftp.s"
+	@echo "... src/parsers/http.o"
+	@echo "... src/parsers/http.i"
+	@echo "... src/parsers/http.s"
 	@echo "... src/parsers/ipv4.o"
 	@echo "... src/parsers/ipv4.i"
 	@echo "... src/parsers/ipv4.s"
@@ -405,6 +456,9 @@ help:
 	@echo "... src/utils/decEthernet.o"
 	@echo "... src/utils/decEthernet.i"
 	@echo "... src/utils/decEthernet.s"
+	@echo "... src/utils/decHttp.o"
+	@echo "... src/utils/decHttp.i"
+	@echo "... src/utils/decHttp.s"
 	@echo "... src/utils/decIPv4.o"
 	@echo "... src/utils/decIPv4.i"
 	@echo "... src/utils/decIPv4.s"

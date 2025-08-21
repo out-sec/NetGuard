@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/president/NetGuard/include
+CXX_INCLUDES = -I/home/ali-noor/NetGuard_review/include
 
 CXX_FLAGS = -std=gnu++17 -flto=auto -fno-fat-lto-objects -Wall -Wextra -Wunused -Wunused-function -Wunused-variable -ffunction-sections -fdata-sections
 
