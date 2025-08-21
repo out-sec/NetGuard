@@ -44,3 +44,5 @@
 
 # debug information files
 *.dwo
+build/
+config/interface.cfg
