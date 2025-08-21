@@ -14,6 +14,7 @@ configure_file("${CMAKE_SOURCE_DIR}/config/interface.cfg"
 set(SOURCES
     src/main.cpp
     src/entry.cpp
+    src/parsers/http.cpp
     src/parsers/ethernet.cpp
     src/parsers/ipv4.cpp
     src/parsers/http.cpp
@@ -24,6 +25,7 @@ set(SOURCES
     src/utils/decIPv4.cpp
     src/parsers/arp.cpp
     src/parsers/tcp.cpp
+    src/parsers/ftp.cpp
 )
 
 # Compiler warnings

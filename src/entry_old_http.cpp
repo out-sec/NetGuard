@@ -47,7 +47,6 @@ int run_entry() {
         if (len < 0) {
             perror("[-] Packet receive failed");
             break;
-
         }
 
         packet_number++;
@@ -117,13 +116,6 @@ int run_entry() {
                 std::cout << "      Checksum: " << decoders::checksum_to_string(tcp.checksum) << "\n";
                 std::cout << "      Urgent Pointer: " << tcp.urgent_pointer << "\n";
                 std::cout << "      Options Length: " << static_cast<int>(tcp.options_length) << "\n";
-            
-                // --- HTTP Parsing ---
-                parsers::HTTPHeader http = parsers::parse_http_header(tcp.payload, tcp.payload_length);
-                if (http.is_http) {
-                    std::cout << "[HTTP] Parsed Request/Response:\n"
-                    << http.to_string() << std::endl;
-}
 
                 if (tcp.options_length > 0) {
                     std::cout << "      Options (hex): ";
