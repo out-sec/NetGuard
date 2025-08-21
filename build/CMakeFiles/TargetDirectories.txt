@@ -1,3 +1,0 @@
-/home/ali-noor/NetGuard_fresh/build/CMakeFiles/nids.dir
-/home/ali-noor/NetGuard_fresh/build/CMakeFiles/edit_cache.dir
-/home/ali-noor/NetGuard_fresh/build/CMakeFiles/rebuild_cache.dir
