@@ -1,3 +1,4 @@
+// src/entry.cpp
 #include "config/interface.h"
 #include "parsers/ethernet.h"
 #include "parsers/ipv4.h"
@@ -7,7 +8,6 @@
 #include "parsers/tcp.h"
 #include "parsers/http.h"
 #include "utils/decHttp.h"
-
 
 #include <iostream>
 #include <unistd.h>
@@ -27,10 +27,11 @@ int run_entry() {
     }
 
     // Load interface from config file in build/config/interface.cfg
-    config::Interface iface; 
+    config::Interface iface;
     std::string iface_name = iface.get_interface();
 
-    if (setsockopt(sock, SOL_SOCKET, SO_BINDTODEVICE, iface_name.c_str(), iface_name.length()) < 0) {
+    // SO_BINDTODEVICE expects a char*; include terminating NUL
+    if (setsockopt(sock, SOL_SOCKET, SO_BINDTODEVICE, iface_name.c_str(), iface_name.length() + 1) < 0) {
         perror(("[-] Failed to bind to interface: " + iface_name).c_str());
         close(sock);
         return 1;
@@ -47,17 +48,15 @@ int run_entry() {
         if (len < 0) {
             perror("[-] Packet receive failed");
             break;
-
         }
 
         packet_number++;
 
         // Step 3: Parse Ethernet frame (which dispatches to IPv4, etc.)
-        parsers::EthernetHeader eth = parsers::parse_ethernet_header(buffer, len);
+        parsers::EthernetHeader eth = parsers::parse_ethernet_header(buffer, static_cast<size_t>(len));
 
         if (eth.eth_proto == "IPv4") {
             parsers::IPv4Header ipv4 = parsers::parse_ipv4_header(eth.payload, eth.payload_len);
-
 
             std::cout << "[+] Packet # " << packet_number << " " << parsers::ipv4_to_string(ipv4.src_ip) << " ==> " << parsers::ipv4_to_string(ipv4.dest_ip) << "\n";
             std::cout << "  Ethernet Frame:\n";
@@ -74,24 +73,13 @@ int run_entry() {
             std::cout << "      Fragment Offset: " << decoders::fragment_offset_to_string((ipv4.flags_fragment_offset)) << "\n";
             std::cout << "      Time To Live:    " << decoders::ttl_to_string(static_cast<int>(ipv4.ttl)) << "\n";
             std::cout << "      Protocol:        " << decoders::protocol_to_string(static_cast<int>(ipv4.protocol)) << "\n";
-            std::cout << "      Header Checksum: " << decoders::checksum_to_string(ipv4.header_checksum)<< "\n";
+            std::cout << "      Header Checksum: " << decoders::checksum_to_string(ipv4.header_checksum) << "\n";
             std::cout << "      Source IP:       " << parsers::ipv4_to_string(ipv4.src_ip) << "\n";
             std::cout << "      Destination IP:  " << parsers::ipv4_to_string(ipv4.dest_ip) << "\n";
             std::cout << "      Payload Length:  " << ipv4.payload_length << " bytes\n";
-            // if (ipv4.payload_length > 0) {
-            //     std::cout << "      Payload (hex):   \n";
-            //     std::cout << "        ";
-            //     for (size_t i = 0; i < ipv4.payload_length && i < 64; ++i) {
-            //         std::cout << std::hex << std::setw(2) << std::setfill('0')
-            //                 << static_cast<int>(ipv4.payload[i]) << " ";
-            //         if ((i + 1) % 16 == 0) std::cout << "\n      ";
-            //     }
-            //     std::cout << "\n";
-            // } else {
-            //     std::cout << "      No Payload\n";
-            // }
 
-            if ((ipv4.protocol) == 6) {
+            // If TCP (protocol number 6)
+            if (ipv4.protocol == 6) {
                 parsers::TCPHeader tcp = parsers::parse_tcp_header(ipv4.payload, ipv4.payload_length);
 
                 std::cout << "  TCP Packet: \n";
@@ -117,36 +105,28 @@ int run_entry() {
                 std::cout << "      Checksum: " << decoders::checksum_to_string(tcp.checksum) << "\n";
                 std::cout << "      Urgent Pointer: " << tcp.urgent_pointer << "\n";
                 std::cout << "      Options Length: " << static_cast<int>(tcp.options_length) << "\n";
-            
-                // --- HTTP Parsing ---
-                parsers::HTTPHeader http = parsers::parse_http_header(tcp.payload, tcp.payload_length);
-                if (http.is_http) {
-                    std::cout << "[HTTP] Parsed Request/Response:\n"
-                    << http.to_string() << std::endl;
-}
 
                 if (tcp.options_length > 0) {
                     std::cout << "      Options (hex): ";
                     for (size_t i = 0; i < tcp.options.size(); ++i) {
-                        std::cout << std::hex << std::setw(2) << std::setfill('0') 
-                                << static_cast<int>(tcp.options[i]) << " ";
+                        std::cout << std::hex << std::setw(2) << std::setfill('0')
+                                  << static_cast<int>(tcp.options[i]) << " ";
                     }
                     std::cout << std::dec << "\n"; // reset stream to decimal
                 } else {
                     std::cout << "      No TCP Options\n";
                 }
-// HTTP parsing if any TCP payload exists
-if (tcp.payload_length > 0 && tcp.payload != nullptr) {
-    parsers::HTTPHeader http = parsers::parse_http_header(tcp.payload, tcp.payload_length);
-    if (http.is_http) {
-        std::cout << http.to_string();
-    }
-}
 
-
-            }
-        }
-        // ARP Protocol Implementation
+                // HTTP parsing if any TCP payload exists
+                if (tcp.payload_length > 0 && tcp.payload != nullptr) {
+                    parsers::HTTPHeader http = parsers::parse_http_header(tcp.payload, tcp.payload_length);
+                    if (http.is_http) {
+                        std::cout << "[HTTP] Parsed Request/Response:\n"
+                                  << http.to_string() << std::endl;
+                    }
+                }
+            } // end if tcp
+        } // end if IPv4
         else if (eth.eth_proto == "ARP") {
             parsers::ARPHeader arp = parsers::parse_arp_header(eth.payload, eth.payload_len);
 
@@ -162,23 +142,23 @@ if (tcp.payload_length > 0 && tcp.payload != nullptr) {
             std::cout << "      Hardware Size:   " << static_cast<int>(arp.hardware_size) << "\n";
             std::cout << "      Protocol Size:   " << static_cast<int>(arp.protocol_size) << "\n";
             std::cout << "      Operation:       " << ((arp.operation == 1) ? "Request (1)" : "Reply (2)") << "\n";
+
             std::cout << "      Sender MAC:      ";
             for (const auto& byte : arp.sender_mac)
                 std::cout << std::hex << std::setw(2) << std::setfill('0') << static_cast<int>(byte) << ":";
-            std::cout << "\b \n"; // Remove last colon
+            std::cout << std::dec << "\b \n"; // Remove last colon and reset to decimal
 
             std::cout << "      Sender IP:       " << arp.sender_ip << "\n";
 
             std::cout << "      Target MAC:      ";
             for (const auto& byte : arp.target_mac)
                 std::cout << std::hex << std::setw(2) << std::setfill('0') << static_cast<int>(byte) << ":";
-            std::cout << "\b \n";
+            std::cout << std::dec << "\b \n";
 
             std::cout << "      Target IP:       " << arp.target_ip << "\n";
-        }
-        
+        } // end else if ARP
 
-    }
+    } // end while
 
     close(sock);
     return 0;
