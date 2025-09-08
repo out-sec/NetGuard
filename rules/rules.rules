@@ -1,0 +1,28 @@
+# Example rules for your IDS
+# Format: action protocol src_ip src_port -> dst_ip dst_port (options)
+
+# Detect cleartext password in URL or body
+alert http any any -> any any (content:"password="; msg:"Password keyword in HTTP"; sid:1001; nocase;)
+
+# Detect credit card pattern in body (very simple regex-like string for now)
+alert http any any -> any any (content:"card_number="; msg:"Credit card number detected"; sid:1002; nocase;)
+
+# Detect suspicious User-Agent header
+alert http any any -> any any (content:"User-Agent: EvilScanner"; msg:"Suspicious scanner User-Agent"; sid:1003; nocase;)
+
+# Detect SQL injection attempt
+alert http any any -> any any (content:"UNION SELECT"; msg:"Possible SQL injection"; sid:1004; nocase;)
+
+# Detect command injection in params
+alert http any any -> any any (content:"; rm -rf"; msg:"Command injection attempt"; sid:1005; nocase;)
+# Detect XSS attempt (script tag in payload)
+alert http any any -> any any (content:"<script>"; msg:"Possible XSS attack"; sid:1006; nocase;)
+
+# Detect suspicious directory traversal
+alert http any any -> any any (content:"../etc/passwd"; msg:"Directory traversal attempt"; sid:1007; nocase;)
+
+# Detect remote file inclusion (http:// in params)
+alert http any any -> any any (content:"http://"; msg:"Possible Remote File Inclusion (RFI)"; sid:1008; nocase;)
+
+# Detect Base64-encoded payload often used in attacks
+alert http any any -> any any (content:"YmFzaCA="; msg:"Suspicious base64 encoded string (possible shell command)"; sid:1009; nocase;)

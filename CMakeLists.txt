@@ -7,8 +7,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Header location
 include_directories(include)
 
-configure_file("${CMAKE_SOURCE_DIR}/config/interface.cfg" 
-               "${CMAKE_BINARY_DIR}/config/interface.cfg" COPYONLY)
+#configure_file("${CMAKE_SOURCE_DIR}/config/interface.cfg" 
+#               "${CMAKE_BINARY_DIR}/config/interface.cfg" COPYONLY)
 
 # Source files
 set(SOURCES
@@ -18,6 +18,7 @@ set(SOURCES
     src/parsers/ethernet.cpp
     src/parsers/ipv4.cpp
     src/parsers/http.cpp
+    src/rules/rules.cpp
     src/utils/decEthernet.cpp
     # src/utils/hex.cpp
     src/utils/decHttp.cpp
