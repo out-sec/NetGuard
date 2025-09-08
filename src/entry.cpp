@@ -8,7 +8,10 @@
 #include "parsers/tcp.h"
 #include "parsers/http.h"
 #include "utils/decHttp.h"
+
 #include "parsers/ftp.h"
+
+#include "rules/rules.h"
 
 #include <iostream>
 #include <unistd.h>
@@ -110,6 +113,31 @@ int run_entry() {
                 std::cout << "      Checksum: " << decoders::checksum_to_string(tcp.checksum) << "\n";
                 std::cout << "      Urgent Pointer: " << tcp.urgent_pointer << "\n";
                 std::cout << "      Options Length: " << static_cast<int>(tcp.options_length) << "\n";
+           
+                // --- HTTP Parsing ---
+                parsers::HTTPHeader http = parsers::parse_http_header(tcp.payload, tcp.payload_length);
+                if (http.is_http) {
+                std::cout << "[HTTP] Parsed Request/Response:\n"
+              << http.to_string() << std::endl;
+}
+
+                // Decode HTTP fully (for rule engine)
+                if (auto decoded = utils::decode_http(tcp.payload, tcp.payload_length)) {
+                auto decoded_http = *decoded;
+
+                // Load rules once (static means loaded only first time)
+                static std::vector<Rule> rules = load_rules("../rules/rules.rules");
+
+                // Get IPs/ports for the rule engine
+               const std::string src_ip_str = parsers::ipv4_to_string(ipv4.src_ip);
+                const std::string dst_ip_str = parsers::ipv4_to_string(ipv4.dest_ip);
+
+               // Apply rules
+              apply_rules(rules, decoded_http,
+                src_ip_str, tcp.src_port,
+                dst_ip_str, tcp.dest_port);
+}
+
 
                 if (tcp.options_length > 0) {
                     std::cout << "      Options (hex): ";
