@@ -133,6 +133,7 @@ int run_entry() {
                 const std::string dst_ip_str = parsers::ipv4_to_string(ipv4.dest_ip);
 
                // Apply rules
+               //std::cout << "[DEBUG] Decoded HTTP: " << decoded_http << std::endl;
               apply_rules(rules, decoded_http,
                 src_ip_str, tcp.src_port,
                 dst_ip_str, tcp.dest_port);
